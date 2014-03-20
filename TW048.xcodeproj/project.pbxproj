@@ -24,6 +24,10 @@
 		A6B284AF18DB210F00E2654D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B2848A18DB210F00E2654D /* UIKit.framework */; };
 		A6B284B718DB210F00E2654D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6B284B518DB210F00E2654D /* InfoPlist.strings */; };
 		A6B284B918DB210F00E2654D /* TW048Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B284B818DB210F00E2654D /* TW048Tests.m */; };
+		A6B284CA18DB228200E2654D /* NRTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B284C318DB228200E2654D /* NRTileView.m */; };
+		A6B284CB18DB228200E2654D /* NRGamePadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B284C518DB228200E2654D /* NRGamePadView.m */; };
+		A6B284CC18DB228200E2654D /* NRTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B284C718DB228200E2654D /* NRTile.m */; };
+		A6B284CD18DB228200E2654D /* NRGamePad.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B284C918DB228200E2654D /* NRGamePad.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,14 @@
 		A6B284B418DB210F00E2654D /* TW048Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TW048Tests-Info.plist"; sourceTree = "<group>"; };
 		A6B284B618DB210F00E2654D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6B284B818DB210F00E2654D /* TW048Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TW048Tests.m; sourceTree = "<group>"; };
+		A6B284C218DB228200E2654D /* NRTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTileView.h; sourceTree = "<group>"; };
+		A6B284C318DB228200E2654D /* NRTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTileView.m; sourceTree = "<group>"; };
+		A6B284C418DB228200E2654D /* NRGamePadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGamePadView.h; sourceTree = "<group>"; };
+		A6B284C518DB228200E2654D /* NRGamePadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRGamePadView.m; sourceTree = "<group>"; };
+		A6B284C618DB228200E2654D /* NRTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTile.h; sourceTree = "<group>"; };
+		A6B284C718DB228200E2654D /* NRTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTile.m; sourceTree = "<group>"; };
+		A6B284C818DB228200E2654D /* NRGamePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGamePad.h; sourceTree = "<group>"; };
+		A6B284C918DB228200E2654D /* NRGamePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRGamePad.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +133,7 @@
 		A6B2848E18DB210F00E2654D /* TW048 */ = {
 			isa = PBXGroup;
 			children = (
+				A6B284CE18DB228A00E2654D /* OLD */,
 				A6B2849718DB210F00E2654D /* NRAppDelegate.h */,
 				A6B2849818DB210F00E2654D /* NRAppDelegate.m */,
 				A6B2849A18DB210F00E2654D /* Main.storyboard */,
@@ -162,6 +175,21 @@
 				A6B284B518DB210F00E2654D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6B284CE18DB228A00E2654D /* OLD */ = {
+			isa = PBXGroup;
+			children = (
+				A6B284C218DB228200E2654D /* NRTileView.h */,
+				A6B284C318DB228200E2654D /* NRTileView.m */,
+				A6B284C418DB228200E2654D /* NRGamePadView.h */,
+				A6B284C518DB228200E2654D /* NRGamePadView.m */,
+				A6B284C618DB228200E2654D /* NRTile.h */,
+				A6B284C718DB228200E2654D /* NRTile.m */,
+				A6B284C818DB228200E2654D /* NRGamePad.h */,
+				A6B284C918DB228200E2654D /* NRGamePad.m */,
+			);
+			name = OLD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B284CC18DB228200E2654D /* NRTile.m in Sources */,
 				A6B2849F18DB210F00E2654D /* NRViewController.m in Sources */,
+				A6B284CA18DB228200E2654D /* NRTileView.m in Sources */,
 				A6B2849918DB210F00E2654D /* NRAppDelegate.m in Sources */,
 				A6B284A218DB210F00E2654D /* NRMyScene.m in Sources */,
+				A6B284CD18DB228200E2654D /* NRGamePad.m in Sources */,
+				A6B284CB18DB228200E2654D /* NRGamePadView.m in Sources */,
 				A6B2849518DB210F00E2654D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
