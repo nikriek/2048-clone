@@ -1,5 +1,5 @@
 //
-//  NRTile.h
+//  NRMap.h
 //  TW048
 //
 //  Created by Niklas Riekenbrauck on 21.03.14.
@@ -8,8 +8,11 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface NRTile : SKShapeNode
+@interface NRMap : SKNode
 
-@property (nonatomic) NSInteger currentValue;
+@property (nonatomic) CGSize gridSize;
+
+-(void)generate;
+-(CGPoint)positionForTileWithCoordinates:(CGPoint)coordinates;
 
 @end

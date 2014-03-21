@@ -1,14 +1,14 @@
 //
-//  NRViewController.h
+//  NRMapTile.h
 //  TW048
 //
-
+//  Created by Niklas Riekenbrauck on 21.03.14.
 //  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import "NRMap.h"
 
-@interface NRViewController : UIViewController
+@interface NRTileMap : NRMap
 
 @end
