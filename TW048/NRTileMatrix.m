@@ -26,7 +26,7 @@
 
 #pragma mark - Tile matrix related methods
 
--(NRTile*)tileAtPosition:(CGPoint)position {
+-(NRTile*)tileAtCoordinates:(CGPoint)position {
     id obj = tileMatrix[(NSInteger)position.x * 4 + (NSInteger)position.y];
     if ([obj isMemberOfClass:[NRTile class]]) {
         return (NRTile*)obj;
@@ -35,13 +35,13 @@
     }
 }
 
--(void)insertTile:(NRTile*)tile atPosition:(CGPoint)position {
+-(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)position {
     if ((NSInteger)position.x * 4 + (NSInteger)position.y < tileMatrix.count) {
         tileMatrix[(NSInteger)position.x * 4 + (NSInteger)position.y] = tile;
     }
 }
 
--(void)removeTileAtPosition:(CGPoint)position {
+-(void)removeTileAtCoordinates:(CGPoint)position {
     if ((NSInteger)position.x * 4 + (NSInteger)position.y < tileMatrix.count) {
         tileMatrix[(NSInteger)position.x * 4 + (NSInteger)position.y] = [NSNull null];
     }
@@ -57,7 +57,7 @@
     return count;
 }
 
--(CGPoint)positionOfTile:(NRTile*)tile {
+-(CGPoint)coordinatesOfTile:(NRTile*)tile {
     for (int i = 0; i < tileMatrix.count;i++) {
         NRTile *iTile = tileMatrix[i];
         if (iTile == tile) {

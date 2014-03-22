@@ -24,27 +24,26 @@
 }
 
 -(void)setNewTileAtRandomPosition {
-    if ([tileMatrix countOfTiles] <= 16) {
+    if ([tileMatrix countOfTiles] < 16) {
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
                 CGFloat xCoordinate = (CGFloat)x;
                 CGFloat yCoordinate = (CGFloat)y;
                 CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
-                if ([tileMatrix tileAtPosition:position] == nil) {
+                if ([tileMatrix tileAtCoordinates:CGPointMake(xCoordinate, yCoordinate)] == nil) {
                     NRTile *tile = [[NRTile alloc] initWithPosition:position];
                     tile.currentValue = 32;
-                    [tileMatrix insertTile:tile atPosition:position];
+                    [tileMatrix insertTile:tile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
                     [self addChild:tile];
                     break;
                 }
             }
         }
-        
     }
 }
 
 -(void)moveTile:(NRTile*)tile toPosition:(CGPoint)newPosition {
-    CGPoint oldPosition = [tileMatrix positionOfTile:tile];
+    CGPoint oldPosition = [tileMatrix coordinatesOfTile:tile];
     if (oldPosition.x != -1.0) {
         SKAction *moveAction;
         [tile runAction: moveAction];

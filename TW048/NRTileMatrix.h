@@ -11,14 +11,14 @@
 
 @interface NRTileMatrix : NSObject
 
--(NRTile*)tileAtPosition:(CGPoint)position;
+-(NRTile*)tileAtCoordinates:(CGPoint)position;
 
--(void)insertTile:(NRTile*)tile atPosition:(CGPoint)position;
+-(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)position;
 
--(void)removeTileAtPosition:(CGPoint)position;
+-(void)removeTileAtCoordinates:(CGPoint)position;
 
 -(NSInteger)countOfTiles;
 
--(CGPoint)positionOfTile:(NRTile*)tile;
+-(CGPoint)coordinatesOfTile:(NRTile*)tile;
 
 @end
