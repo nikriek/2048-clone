@@ -59,6 +59,7 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
+    [SKAction playSoundFileNamed:@"73601__willc2-45220__swoop-thick-01.aif" waitForCompletion:YES];
     /*
     switch (direction) {
         case kDirectionUp:
