@@ -87,10 +87,13 @@
     }
     
     //pop out animation
-    SKAction *popOut = [SKAction scaleTo:1.1 duration:0.05];
-    SKAction *popIn = [SKAction scaleTo:1.0 duration:0.05];
-    SKAction *sequence = [SKAction sequence:@[popOut,popIn]];
-    [self runAction:sequence];
+    if (currentValue != 0) {
+        SKAction *popOut = [SKAction scaleTo:1.1 duration:0.05];
+        SKAction *popIn = [SKAction scaleTo:1.0 duration:0.05];
+        SKAction *sequence = [SKAction sequence:@[popOut,popIn]];
+        [self runAction:sequence];
+    }
+
     
     
     /*

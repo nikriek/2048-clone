@@ -59,6 +59,7 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
+
     /*
     switch (direction) {
         case kDirectionUp:
