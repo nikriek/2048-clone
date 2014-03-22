@@ -17,20 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Play some lovely background music
-    NSError *error;
-    NSURL *backgroundMusicURL =[[NSBundle mainBundle] URLForResource:@"157846_darkmast49_fightscene (mp3cut.net)" withExtension:@"wav"];
-    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
-    self.backgroundMusicPlayer.numberOfLoops = -1;
-    self.backgroundMusicPlayer.volume = 0.2f;
-    [self.backgroundMusicPlayer prepareToPlay];
-    [self.backgroundMusicPlayer play];
-    
-    if ( error )
-    {
-        NSLog(@"Error: %@", error.localizedDescription);
-    }
     
     //Make round corners
     self.scoreBackgroundView.layer.cornerRadius = 4.0;
