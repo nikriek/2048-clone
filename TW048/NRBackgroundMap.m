@@ -14,12 +14,10 @@
 -(void)generate {
     for (int y = 0; y < 4; y++) {
         for (int x = 0; x < 4; x++) {
-            NRTile *tile = [[NRTile alloc] init];
             CGFloat xCoordinate = (CGFloat)x;
             CGFloat yCoordinate = (CGFloat)y;
             CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
-            [tile setPath:CGPathCreateWithRoundedRect(CGRectMake(position.x, position.y, 60.0,60.0), 4, 4, nil)];
-            tile.lineWidth = 0.0;
+            NRTile *tile = [[NRTile alloc] initBackWithPosition:position];
             [self addChild:tile];
         }
     }
