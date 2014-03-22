@@ -4,3 +4,4 @@
 - Label für NRTile
 - Gewinn-Botschaft
 - Vergrößern-Animation bei Neusetzen des NRTile-Wertes
+- Einstellungen
