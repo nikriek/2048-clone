@@ -85,6 +85,14 @@
             self.strokeColor = self.fillColor = UIColorFromRGB(0x3c3a32);
             break;
     }
+    
+    //pop out animation
+    SKAction *popOut = [SKAction scaleTo:1.1 duration:0.05];
+    SKAction *popIn = [SKAction scaleTo:1.0 duration:0.05];
+    SKAction *sequence = [SKAction sequence:@[popOut,popIn]];
+    [self runAction:sequence];
+    
+    
     /*
     // Set Label font color
     if (currentValue < 8) {
