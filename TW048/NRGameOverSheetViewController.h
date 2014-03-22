@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+TargetViewController.h"
 
 @interface NRGameOverSheetViewController : UIViewController
+- (IBAction)pushedRestart:(UIButton *)sender;
 
 @end

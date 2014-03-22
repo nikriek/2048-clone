@@ -7,6 +7,7 @@
 //
 
 #import "NRGameOverSheetViewController.h"
+#import "MZFormSheetController.h"
 
 @interface NRGameOverSheetViewController ()
 
@@ -46,4 +47,10 @@
 }
 */
 
+- (IBAction)pushedRestart:(UIButton *)sender {
+    MZFormSheetController *parent = (MZFormSheetController*)[self mz_parentTargetViewController];
+    [parent mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        // do sth
+    }];
+}
 @end
