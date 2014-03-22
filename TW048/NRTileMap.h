@@ -8,7 +8,12 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "NRMap.h"
+#import "SKAction+Direction.h"
 
 @interface NRTileMap : NRMap
+
+-(void)setNewTileAtRandomPosition;
+
+-(void)performedSwipeGestureInDirection:(Direction)direction;
 
 @end

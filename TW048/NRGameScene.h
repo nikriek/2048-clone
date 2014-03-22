@@ -7,15 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-
+#import "SKAction+Direction.h"
 @interface NRGameScene : SKScene
-
-typedef enum Direction:NSInteger {
-    kDirectionUp,
-    kDirectionDown,
-    kDirectionLeft,
-    kDirectionRight
-} Direction;
 
 -(void)performedSwipeGestureInDirection:(Direction)direction;
 

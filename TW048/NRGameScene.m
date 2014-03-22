@@ -8,10 +8,13 @@
 
 #import "NRGameScene.h"
 #import "NRMap.h"
+#import "NRTileMap.h"
 
 //http://www.raywenderlich.com/49502/procedural-level-generation-in-games-tutorial-part-1
 
-@implementation NRGameScene
+@implementation NRGameScene {
+    NRTileMap *tiles;
+}
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -24,6 +27,9 @@
         [self addChild:map];
     
         // Represents an actual tile map
+        tiles = [NRTileMap node];
+        [tiles setNewTileAtRandomPosition];
+        [self addChild:tiles];
         
     }
     return self;
@@ -34,7 +40,8 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
-    
+    [tiles performedSwipeGestureInDirection:direction];
+
 }
 
 @end

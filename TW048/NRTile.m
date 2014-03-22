@@ -17,10 +17,6 @@
     self = [super init];
     if (self) {
         self.currentValue = 0;
-        
-        SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
-        label.position = CGPointMake(30.0,30.0);
-        label.text = [NSString stringWithFormat:@"%i",self.currentValue];
     }
     return self;
 }
@@ -55,15 +51,12 @@
         case 256:
             self.strokeColor = self.fillColor = UIColorFromRGB(0xedcc61);
             break;
-            
         case 512:
             self.strokeColor = self.fillColor = UIColorFromRGB(0xedc850);
             break;
-        
         case 1024:
             self.strokeColor = self.fillColor = UIColorFromRGB(0xedc53f);
             break;
-        
         case 2048:
             self.strokeColor = self.fillColor = UIColorFromRGB(0xedc22e);
             break;
