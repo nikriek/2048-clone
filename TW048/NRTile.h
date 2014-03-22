@@ -12,5 +12,7 @@
 
 @property (nonatomic) NSInteger currentValue;
 
-- (instancetype)initWithPosition:(CGPoint)position;
+- (instancetype)initFrontWithPosition:(CGPoint)position;
+- (instancetype)initBackWithPosition:(CGPoint)position;
+
 @end

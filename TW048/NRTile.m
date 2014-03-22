@@ -8,18 +8,9 @@
 
 #import "NRTile.h"
 
-@implementation NRTile
-
+@implementation NRTile 
 @synthesize currentValue = _currentValue;
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.currentValue = 0;
-    }
-    return self;
-}
 
 - (instancetype)initWithPosition:(CGPoint)position
 {
@@ -31,9 +22,28 @@
     return self;
 }
 
+- (instancetype)initFrontWithPosition:(CGPoint)position
+{
+    self = [self initWithPosition:position];
+    if (self) {
+        [self setCurrentValue: 2];
+    }
+    return self;
+}
+
+- (instancetype)initBackWithPosition:(CGPoint)position
+{
+    self = [self initWithPosition:position];
+    if (self) {
+        [self setCurrentValue: 0];
+    }
+    return self;
+}
+
 -(void)setCurrentValue:(NSInteger)currentValue {
     _currentValue = currentValue;
-
+    
+    //Set background depending on value
     switch (self.currentValue) {
         case 0:
             self.strokeColor = self.fillColor = [UIColor colorWithRed:238.0/255.0 green:228.0/255.0 blue:218.0/255.0 alpha:0.35];
@@ -75,6 +85,20 @@
             self.strokeColor = self.fillColor = UIColorFromRGB(0x3c3a32);
             break;
     }
+    /*
+    // Set Label font color
+    if (currentValue < 8) {
+        label.fontColor = UIColorFromRGB(0x776e65);
+    } else {
+        label.fontColor = UIColorFromRGB(0xf9f6f2);
+    }
+    
+    // Set the label text
+    if (currentValue == 0) {
+        label.text = @"t";
+    } else {
+        label.text = [NSString stringWithFormat:@"%i",currentValue];
+    }*/
 }
 
 @end

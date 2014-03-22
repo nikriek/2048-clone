@@ -32,8 +32,8 @@
                 CGFloat yCoordinate = (CGFloat)y;
                 CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
                 if ([tileMatrix tileAtCoordinates:CGPointMake(xCoordinate, yCoordinate)] == nil) {
-                    NRTile *tile = [[NRTile alloc] initWithPosition:position];
-                    tile.currentValue = 2;
+                    NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
+                    [tile setCurrentValue:2];
                     [tileMatrix insertTile:tile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
                     [self addChild:tile];
                     shouldBreak = YES;
@@ -59,11 +59,20 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
+    /*
     switch (direction) {
         case kDirectionUp:
             for (int y = 2; y >= 0; y--) {
                 for (int x = 0; x < 4; x++) {
-                    
+                    NRTile *tile= [tileMatrix tileAtCoordinates:CGPointMake(x, y)];
+                    if (tile != nil) {
+                        for (int i = 3; i >= 0; i--) {
+                            NRTile *otherTile = [tileMatrix tileAtCoordinates:CGPointMake(x, i)];
+                            if (ot) {
+                                <#statements#>
+                            }
+                        }
+                    }
                 }
             }
             break;
@@ -92,7 +101,7 @@
         default:
             break;
     }
-    [self setNewTileAtRandomPosition];
+    [self setNewTileAtRandomPosition];*/
 }
 
 @end
