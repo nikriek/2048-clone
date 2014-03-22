@@ -1,6 +1,3 @@
-
-
-
 ----------
 SOUNDS
 ----------
@@ -22,3 +19,29 @@ Computer Error-SoundBible.com-1655839472                    -> Attribution 3.0  
 67095__sunnysidesound__pop-9.aif                            -> Attribution                      //https://www.freesound.org/people/SunnySideSound/sounds/67095/
 202230__deraj__pop-sound.wav                                -> No Copyright / Public Domain
 47498__carlsablowedwards__mouthpop-02.wav                   -> No Copyright / Public Domain
+
+----------
+SOFTWARE
+----------
+
+MZFormSheetController
+--
+Copyright (c) 2013, Michał Zaborowski
+
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal 
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in 
+all copies or substantial portions of the Software.
+
+The Software is provided "as is", without warranty of any kind, express or 
+implied, including but not limited to the warranties of merchantability, 
+fitness for a particular purpose and noninfringement. In no event shall the 
+authors or copyright holders be liable for any claim, damages or other 
+liability, whether in an action of contract, tort or otherwise, arising from, 
+out of or in connection with the software or the use or other dealings in 
+the Software.

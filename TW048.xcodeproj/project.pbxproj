@@ -44,6 +44,13 @@
 		A6B284AF18DB210F00E2654D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B2848A18DB210F00E2654D /* UIKit.framework */; };
 		A6B284B718DB210F00E2654D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6B284B518DB210F00E2654D /* InfoPlist.strings */; };
 		A6B284B918DB210F00E2654D /* TW048Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B284B818DB210F00E2654D /* TW048Tests.m */; };
+		A6E5A3EC18DDFB990082410C /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E5A3DF18DDFB990082410C /* MZFormSheetBackgroundWindow.m */; };
+		A6E5A3ED18DDFB990082410C /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E5A3E118DDFB990082410C /* MZFormSheetBackgroundWindowViewController.m */; };
+		A6E5A3EE18DDFB990082410C /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E5A3E318DDFB990082410C /* MZFormSheetController.m */; };
+		A6E5A3EF18DDFB990082410C /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E5A3E518DDFB990082410C /* MZFormSheetSegue.m */; };
+		A6E5A3F018DDFB990082410C /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E5A3E718DDFB990082410C /* MZTransition.m */; };
+		A6E5A3F118DDFB990082410C /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E5A3E918DDFB990082410C /* UIImage+Additional.m */; };
+		A6E5A3F218DDFB990082410C /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E5A3EB18DDFB990082410C /* UIViewController+TargetViewController.m */; };
 		A6E79CF318DDD2C600301D99 /* Acknowledgements.md in Resources */ = {isa = PBXBuildFile; fileRef = A6E79CF218DDD2C600301D99 /* Acknowledgements.md */; };
 		A6E79CF618DDEC9D00301D99 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E79CF518DDEC9D00301D99 /* SoundPlayer.m */; };
 /* End PBXBuildFile section */
@@ -107,6 +114,20 @@
 		A6B284B418DB210F00E2654D /* TW048Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TW048Tests-Info.plist"; sourceTree = "<group>"; };
 		A6B284B618DB210F00E2654D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6B284B818DB210F00E2654D /* TW048Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TW048Tests.m; sourceTree = "<group>"; };
+		A6E5A3DE18DDFB990082410C /* MZFormSheetBackgroundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindow.h; sourceTree = "<group>"; };
+		A6E5A3DF18DDFB990082410C /* MZFormSheetBackgroundWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindow.m; sourceTree = "<group>"; };
+		A6E5A3E018DDFB990082410C /* MZFormSheetBackgroundWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindowViewController.h; sourceTree = "<group>"; };
+		A6E5A3E118DDFB990082410C /* MZFormSheetBackgroundWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindowViewController.m; sourceTree = "<group>"; };
+		A6E5A3E218DDFB990082410C /* MZFormSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetController.h; sourceTree = "<group>"; };
+		A6E5A3E318DDFB990082410C /* MZFormSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetController.m; sourceTree = "<group>"; };
+		A6E5A3E418DDFB990082410C /* MZFormSheetSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetSegue.h; sourceTree = "<group>"; };
+		A6E5A3E518DDFB990082410C /* MZFormSheetSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetSegue.m; sourceTree = "<group>"; };
+		A6E5A3E618DDFB990082410C /* MZTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTransition.h; sourceTree = "<group>"; };
+		A6E5A3E718DDFB990082410C /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
+		A6E5A3E818DDFB990082410C /* UIImage+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additional.h"; sourceTree = "<group>"; };
+		A6E5A3E918DDFB990082410C /* UIImage+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additional.m"; sourceTree = "<group>"; };
+		A6E5A3EA18DDFB990082410C /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
+		A6E5A3EB18DDFB990082410C /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
 		A6E79CF218DDD2C600301D99 /* Acknowledgements.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Acknowledgements.md; sourceTree = "<group>"; };
 		A6E79CF418DDEC9D00301D99 /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		A6E79CF518DDEC9D00301D99 /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
@@ -237,6 +258,7 @@
 		A6B2848E18DB210F00E2654D /* TW048 */ = {
 			isa = PBXGroup;
 			children = (
+				A6E5A3DD18DDFB990082410C /* MZFormSheetController */,
 				A6E79CF418DDEC9D00301D99 /* SoundPlayer.h */,
 				A6E79CF518DDEC9D00301D99 /* SoundPlayer.m */,
 				A6B2849718DB210F00E2654D /* NRAppDelegate.h */,
@@ -299,6 +321,27 @@
 				A6523F1718DD19FA001A68F0 /* NRTileMatrix.m */,
 			);
 			name = "Game Scene";
+			sourceTree = "<group>";
+		};
+		A6E5A3DD18DDFB990082410C /* MZFormSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				A6E5A3DE18DDFB990082410C /* MZFormSheetBackgroundWindow.h */,
+				A6E5A3DF18DDFB990082410C /* MZFormSheetBackgroundWindow.m */,
+				A6E5A3E018DDFB990082410C /* MZFormSheetBackgroundWindowViewController.h */,
+				A6E5A3E118DDFB990082410C /* MZFormSheetBackgroundWindowViewController.m */,
+				A6E5A3E218DDFB990082410C /* MZFormSheetController.h */,
+				A6E5A3E318DDFB990082410C /* MZFormSheetController.m */,
+				A6E5A3E418DDFB990082410C /* MZFormSheetSegue.h */,
+				A6E5A3E518DDFB990082410C /* MZFormSheetSegue.m */,
+				A6E5A3E618DDFB990082410C /* MZTransition.h */,
+				A6E5A3E718DDFB990082410C /* MZTransition.m */,
+				A6E5A3E818DDFB990082410C /* UIImage+Additional.h */,
+				A6E5A3E918DDFB990082410C /* UIImage+Additional.m */,
+				A6E5A3EA18DDFB990082410C /* UIViewController+TargetViewController.h */,
+				A6E5A3EB18DDFB990082410C /* UIViewController+TargetViewController.m */,
+			);
+			path = MZFormSheetController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,15 +456,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6E5A3EF18DDFB990082410C /* MZFormSheetSegue.m in Sources */,
+				A6E5A3EC18DDFB990082410C /* MZFormSheetBackgroundWindow.m in Sources */,
 				A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */,
 				A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */,
+				A6E5A3F118DDFB990082410C /* UIImage+Additional.m in Sources */,
 				A6B2849F18DB210F00E2654D /* NRGameViewController.m in Sources */,
+				A6E5A3EE18DDFB990082410C /* MZFormSheetController.m in Sources */,
+				A6E5A3F218DDFB990082410C /* UIViewController+TargetViewController.m in Sources */,
 				A6B2849918DB210F00E2654D /* NRAppDelegate.m in Sources */,
 				A6A4005C18DC762900E11F35 /* NRBackgroundMap.m in Sources */,
 				A6B284A218DB210F00E2654D /* NRGameScene.m in Sources */,
 				A6A4005F18DC76E800E11F35 /* NRTileMap.m in Sources */,
 				A6B2849518DB210F00E2654D /* main.m in Sources */,
+				A6E5A3ED18DDFB990082410C /* MZFormSheetBackgroundWindowViewController.m in Sources */,
 				A6E79CF618DDEC9D00301D99 /* SoundPlayer.m in Sources */,
+				A6E5A3F018DDFB990082410C /* MZTransition.m in Sources */,
 				A6523F1518DD07E8001A68F0 /* SKAction+Direction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
