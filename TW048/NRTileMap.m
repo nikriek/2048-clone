@@ -26,17 +26,22 @@
 -(void)setNewTileAtRandomPosition {
     if ([tileMatrix countOfTiles] < 16) {
         for (int x = 0; x < 4; x++) {
+            BOOL shouldBreak = NO;
             for (int y = 0; y < 4; y++) {
                 CGFloat xCoordinate = (CGFloat)x;
                 CGFloat yCoordinate = (CGFloat)y;
                 CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
                 if ([tileMatrix tileAtCoordinates:CGPointMake(xCoordinate, yCoordinate)] == nil) {
                     NRTile *tile = [[NRTile alloc] initWithPosition:position];
-                    tile.currentValue = 32;
+                    tile.currentValue = 2;
                     [tileMatrix insertTile:tile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
                     [self addChild:tile];
+                    shouldBreak = YES;
                     break;
                 }
+            }
+            if (shouldBreak == YES) {
+                break;
             }
         }
     }
@@ -46,29 +51,48 @@
     CGPoint oldPosition = [tileMatrix coordinatesOfTile:tile];
     if (oldPosition.x != -1.0) {
         SKAction *moveAction;
+        CGSize delta = [self deltaForCoordinates:oldPosition andCoordinates:newPosition];
+        moveAction = [SKAction moveByX:delta.width y:delta.height duration:0.1];
         [tile runAction: moveAction];
     }
     
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
-    /*
     switch (direction) {
         case kDirectionUp:
-            moveNodeUp = [SKAction moveByX:0 y:68.0 duration:0.05];
+            for (int y = 2; y >= 0; y--) {
+                for (int x = 0; x < 4; x++) {
+                    
+                }
+            }
             break;
         case kDirectionDown:
-            moveNodeUp = [SKAction moveByX:0 y:-68.0 duration:0.05];
+            for (int y = 1; y < 4; y++) {
+                for (int x = 0; x < 4; x++) {
+                    
+                }
+            }
             break;
         case kDirectionLeft:
-            moveNodeUp = [SKAction moveByX:-68.0 y:0 duration:0.05];
+            for (int x = 1; x < 4; x++) {
+                for (int y = 0; y < 4; y++) {
+                    
+                }
+            }
             break;
         case kDirectionRight:
-            moveNodeUp = [SKAction moveByX:68.0 y:0 duration:0.05];
+            for (int x = 2; x >= 0 ; x--) {
+                for (int y = 0; y < 4; y++) {
+                    
+                }
+            }
             break;
+            
         default:
             break;
-    }*/
+    }
+    [self setNewTileAtRandomPosition];
 }
 
 @end
