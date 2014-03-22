@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5689E46A18DD210000FF1594 /* The Binary Code Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5689E46918DD210000FF1594 /* The Binary Code Song.mp3 */; };
 		A6B2848718DB210F00E2654D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B2848618DB210E00E2654D /* Foundation.framework */; };
 		A6B2848918DB210F00E2654D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B2848818DB210F00E2654D /* CoreGraphics.framework */; };
 		A6B2848B18DB210F00E2654D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B2848A18DB210F00E2654D /* UIKit.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5689E46918DD210000FF1594 /* The Binary Code Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "The Binary Code Song.mp3"; path = "../../../../../Downloads/The Binary Code Song.mp3"; sourceTree = "<group>"; };
 		A6B2848318DB210E00E2654D /* TW048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TW048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B2848618DB210E00E2654D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6B2848818DB210F00E2654D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5689E46818DD20E400FF1594 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				5689E46918DD210000FF1594 /* The Binary Code Song.mp3 */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		A6B2847A18DB210D00E2654D = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +152,7 @@
 				A6B284A018DB210F00E2654D /* NRMyScene.h */,
 				A6B284A118DB210F00E2654D /* NRMyScene.m */,
 				A6B284A318DB210F00E2654D /* Spaceship.png */,
+				5689E46818DD20E400FF1594 /* Sound */,
 				A6B284A518DB210F00E2654D /* Images.xcassets */,
 				A6B2848F18DB210F00E2654D /* Supporting Files */,
 			);
@@ -273,6 +284,7 @@
 				A6B284A618DB210F00E2654D /* Images.xcassets in Resources */,
 				A6B284A418DB210F00E2654D /* Spaceship.png in Resources */,
 				A6B2849C18DB210F00E2654D /* Main.storyboard in Resources */,
+				5689E46A18DD210000FF1594 /* The Binary Code Song.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +517,7 @@
 				A6B284BE18DB210F00E2654D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A6B284BF18DB210F00E2654D /* Build configuration list for PBXNativeTarget "TW048Tests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +526,7 @@
 				A6B284C118DB210F00E2654D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
