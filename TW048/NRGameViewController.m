@@ -11,7 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SoundPlayer.h"
 
-
 @implementation NRGameViewController {
     NRGameScene * scene;
     SoundPlayer *soundPlayer;
@@ -45,7 +44,7 @@
     }];
     
     [scene.tiles setFinishedGameBlock:^(BOOL success) {
-        [soundPlayer stopBackgroundSound];
+        //[soundPlayer stopBackgroundSound];
         //Actions for end of game
         if (success) {
             ;
@@ -78,9 +77,18 @@
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
+-(void)showPopUpWithScore:(NSInteger)score andSuccess:(BOOL)success {
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sheet"];
+    
+    // present form sheet with view controller
+    [self mz_presentFormSheetWithViewController:vc animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        //do sth
+    }];
+    
+}
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender {
-    
+    [self showPopUpWithScore:100 andSuccess:YES];
     
     if (sender == self.upSwipeGestureRecognizer) {
          [scene.tiles performedSwipeGestureInDirection:kDirectionUp];
