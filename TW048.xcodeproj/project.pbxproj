@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5689E47A18DDC2BD00FF1594 /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47018DDC2BC00FF1594 /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */; };
-		5689E47B18DDC2BD00FF1594 /* 171671__fins__success-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47118DDC2BC00FF1594 /* 171671__fins__success-1.wav */; };
-		5689E47C18DDC2BD00FF1594 /* 73601__willc2-45220__swoop-thick-01.aif in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47218DDC2BC00FF1594 /* 73601__willc2-45220__swoop-thick-01.aif */; };
-		5689E47E18DDC2BD00FF1594 /* 219005__yap-audio-production__weaponswipe03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47418DDC2BD00FF1594 /* 219005__yap-audio-production__weaponswipe03.mp3 */; };
-		5689E47F18DDC2BD00FF1594 /* 83237__mlestn1__pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47518DDC2BD00FF1594 /* 83237__mlestn1__pop.wav */; };
-		5689E48018DDC2BD00FF1594 /* 202230__deraj__pop-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47618DDC2BD00FF1594 /* 202230__deraj__pop-sound.wav */; };
-		5689E48118DDC2BD00FF1594 /* 47498__carlsablowedwards__mouthpop-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47718DDC2BD00FF1594 /* 47498__carlsablowedwards__mouthpop-02.wav */; };
-		5689E48218DDC2BD00FF1594 /* The Binary Code Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47818DDC2BD00FF1594 /* The Binary Code Song.mp3 */; };
-		5689E48318DDC2BD00FF1594 /* 67095__sunnysidesound__pop-9.aif in Resources */ = {isa = PBXBuildFile; fileRef = 5689E47918DDC2BD00FF1594 /* 67095__sunnysidesound__pop-9.aif */; };
-		5689E48818DDC3BE00FF1594 /* 157846__darkmast49__fightscene.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5689E48718DDC3BE00FF1594 /* 157846__darkmast49__fightscene.mp3 */; };
-		5689E48C18DDC81A00FF1594 /* 138490__randomationpictures__powerdown-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5689E48A18DDC81A00FF1594 /* 138490__randomationpictures__powerdown-2.wav */; };
-		5689E48D18DDC81A00FF1594 /* Computer Error-SoundBible.com-1655839472.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5689E48B18DDC81A00FF1594 /* Computer Error-SoundBible.com-1655839472.wav */; };
+		5659478218DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477518DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav */; };
+		5659478318DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477618DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav */; };
+		5659478418DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477718DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav */; };
+		5659478518DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659477818DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 */; };
+		5659478618DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477918DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */; };
+		5659478718DDCF8200066ECE /* 171671__fins__success-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477A18DDCF8200066ECE /* 171671__fins__success-1.wav */; };
+		5659478818DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif in Resources */ = {isa = PBXBuildFile; fileRef = 5659477B18DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif */; };
+		5659478918DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659477C18DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 */; };
+		5659478A18DDCF8200066ECE /* 83237__mlestn1__pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477D18DDCF8200066ECE /* 83237__mlestn1__pop.wav */; };
+		5659478B18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif in Resources */ = {isa = PBXBuildFile; fileRef = 5659477E18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif */; };
+		5659478C18DDCF8200066ECE /* 202230__deraj__pop-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477F18DDCF8200066ECE /* 202230__deraj__pop-sound.wav */; };
+		5659478D18DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659478018DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav */; };
+		5659478E18DDCF8200066ECE /* The Binary Code Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */; };
+		5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E48F18DDC9D100FF1594 /* Social.framework */; };
+		5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E49118DDC9D900FF1594 /* AVFoundation.framework */; };
 		A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */; };
 		A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1118DCF0B2001A68F0 /* NRTile.m */; };
 		A6523F1518DD07E8001A68F0 /* SKAction+Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1418DD07E7001A68F0 /* SKAction+Direction.m */; };
@@ -54,18 +57,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5689E47018DDC2BC00FF1594 /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav"; path = "../../../../../Downloads/177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav"; sourceTree = "<group>"; };
-		5689E47118DDC2BC00FF1594 /* 171671__fins__success-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "171671__fins__success-1.wav"; path = "../../../../../Downloads/171671__fins__success-1.wav"; sourceTree = "<group>"; };
-		5689E47218DDC2BC00FF1594 /* 73601__willc2-45220__swoop-thick-01.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = "73601__willc2-45220__swoop-thick-01.aif"; path = "../../../../../Downloads/73601__willc2-45220__swoop-thick-01.aif"; sourceTree = "<group>"; };
-		5689E47418DDC2BD00FF1594 /* 219005__yap-audio-production__weaponswipe03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "219005__yap-audio-production__weaponswipe03.mp3"; path = "../../../../../Downloads/219005__yap-audio-production__weaponswipe03.mp3"; sourceTree = "<group>"; };
-		5689E47518DDC2BD00FF1594 /* 83237__mlestn1__pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 83237__mlestn1__pop.wav; path = ../../../../../Downloads/83237__mlestn1__pop.wav; sourceTree = "<group>"; };
-		5689E47618DDC2BD00FF1594 /* 202230__deraj__pop-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "202230__deraj__pop-sound.wav"; path = "../../../../../Downloads/202230__deraj__pop-sound.wav"; sourceTree = "<group>"; };
-		5689E47718DDC2BD00FF1594 /* 47498__carlsablowedwards__mouthpop-02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "47498__carlsablowedwards__mouthpop-02.wav"; path = "../../../../../Downloads/47498__carlsablowedwards__mouthpop-02.wav"; sourceTree = "<group>"; };
-		5689E47818DDC2BD00FF1594 /* The Binary Code Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "The Binary Code Song.mp3"; path = "../../../../../Downloads/The Binary Code Song.mp3"; sourceTree = "<group>"; };
-		5689E47918DDC2BD00FF1594 /* 67095__sunnysidesound__pop-9.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = "67095__sunnysidesound__pop-9.aif"; path = "../../../../../Downloads/67095__sunnysidesound__pop-9.aif"; sourceTree = "<group>"; };
-		5689E48718DDC3BE00FF1594 /* 157846__darkmast49__fightscene.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 157846__darkmast49__fightscene.mp3; path = ../../../../../Downloads/157846__darkmast49__fightscene.mp3; sourceTree = "<group>"; };
-		5689E48A18DDC81A00FF1594 /* 138490__randomationpictures__powerdown-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "138490__randomationpictures__powerdown-2.wav"; path = "../../../../../Downloads/138490__randomationpictures__powerdown-2.wav"; sourceTree = "<group>"; };
-		5689E48B18DDC81A00FF1594 /* Computer Error-SoundBible.com-1655839472.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Computer Error-SoundBible.com-1655839472.wav"; path = "../../../../../Downloads/Computer Error-SoundBible.com-1655839472.wav"; sourceTree = "<group>"; };
+		5659477518DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "157846_darkmast49_fightscene (mp3cut.net).wav"; sourceTree = "<group>"; };
+		5659477618DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "138490__randomationpictures__powerdown-2.wav"; sourceTree = "<group>"; };
+		5659477718DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Computer Error-SoundBible.com-1655839472.wav"; sourceTree = "<group>"; };
+		5659477818DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 157846__darkmast49__fightscene.mp3; sourceTree = "<group>"; };
+		5659477918DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav"; sourceTree = "<group>"; };
+		5659477A18DDCF8200066ECE /* 171671__fins__success-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "171671__fins__success-1.wav"; sourceTree = "<group>"; };
+		5659477B18DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "73601__willc2-45220__swoop-thick-01.aif"; sourceTree = "<group>"; };
+		5659477C18DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "219005__yap-audio-production__weaponswipe03.mp3"; sourceTree = "<group>"; };
+		5659477D18DDCF8200066ECE /* 83237__mlestn1__pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 83237__mlestn1__pop.wav; sourceTree = "<group>"; };
+		5659477E18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "67095__sunnysidesound__pop-9.aif"; sourceTree = "<group>"; };
+		5659477F18DDCF8200066ECE /* 202230__deraj__pop-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "202230__deraj__pop-sound.wav"; sourceTree = "<group>"; };
+		5659478018DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "47498__carlsablowedwards__mouthpop-02.wav"; sourceTree = "<group>"; };
+		5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Binary Code Song.mp3"; sourceTree = "<group>"; };
+		5689E48F18DDC9D100FF1594 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5689E49118DDC9D900FF1594 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A6523F1018DCF0B2001A68F0 /* NRTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTile.h; sourceTree = "<group>"; };
 		A6523F1118DCF0B2001A68F0 /* NRTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTile.m; sourceTree = "<group>"; };
@@ -106,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */,
+				5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */,
 				A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */,
 				A6B2848918DB210F00E2654D /* CoreGraphics.framework in Frameworks */,
 				A6B2848B18DB210F00E2654D /* UIKit.framework in Frameworks */,
@@ -127,63 +135,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5689E46F18DDC21C00FF1594 /* Sounds */ = {
+		5659478F18DDCFAD00066ECE /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				5689E48E18DDC81F00FF1594 /* Failure */,
-				5689E48618DDC33200FF1594 /* Success */,
-				5689E48518DDC32A00FF1594 /* Swipe */,
-				5689E48418DDC2ED00FF1594 /* Popping */,
-				5689E48918DDC3C600FF1594 /* Background */,
+				5659479118DDD06400066ECE /* Background */,
+				5659479218DDD07600066ECE /* Failure */,
+				5659479318DDD08400066ECE /* Success */,
+				5659479418DDD09A00066ECE /* Swipe */,
+				5659479518DDD0B000066ECE /* Pop */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
 		};
-		5689E48418DDC2ED00FF1594 /* Popping */ = {
+		5659479118DDD06400066ECE /* Background */ = {
 			isa = PBXGroup;
 			children = (
-				5689E47618DDC2BD00FF1594 /* 202230__deraj__pop-sound.wav */,
-				5689E47518DDC2BD00FF1594 /* 83237__mlestn1__pop.wav */,
-				5689E47718DDC2BD00FF1594 /* 47498__carlsablowedwards__mouthpop-02.wav */,
-				5689E47918DDC2BD00FF1594 /* 67095__sunnysidesound__pop-9.aif */,
-			);
-			name = Popping;
-			sourceTree = "<group>";
-		};
-		5689E48518DDC32A00FF1594 /* Swipe */ = {
-			isa = PBXGroup;
-			children = (
-				5689E47218DDC2BC00FF1594 /* 73601__willc2-45220__swoop-thick-01.aif */,
-				5689E47418DDC2BD00FF1594 /* 219005__yap-audio-production__weaponswipe03.mp3 */,
-			);
-			name = Swipe;
-			sourceTree = "<group>";
-		};
-		5689E48618DDC33200FF1594 /* Success */ = {
-			isa = PBXGroup;
-			children = (
-				5689E47118DDC2BC00FF1594 /* 171671__fins__success-1.wav */,
-				5689E47018DDC2BC00FF1594 /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */,
-			);
-			name = Success;
-			sourceTree = "<group>";
-		};
-		5689E48918DDC3C600FF1594 /* Background */ = {
-			isa = PBXGroup;
-			children = (
-				5689E48718DDC3BE00FF1594 /* 157846__darkmast49__fightscene.mp3 */,
-				5689E47818DDC2BD00FF1594 /* The Binary Code Song.mp3 */,
+				5659477518DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav */,
+				5659477818DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 */,
+				5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */,
 			);
 			name = Background;
 			sourceTree = "<group>";
 		};
-		5689E48E18DDC81F00FF1594 /* Failure */ = {
+		5659479218DDD07600066ECE /* Failure */ = {
 			isa = PBXGroup;
 			children = (
-				5689E48A18DDC81A00FF1594 /* 138490__randomationpictures__powerdown-2.wav */,
-				5689E48B18DDC81A00FF1594 /* Computer Error-SoundBible.com-1655839472.wav */,
+				5659477618DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav */,
+				5659477718DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav */,
 			);
 			name = Failure;
+			sourceTree = "<group>";
+		};
+		5659479318DDD08400066ECE /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				5659477918DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */,
+				5659477A18DDCF8200066ECE /* 171671__fins__success-1.wav */,
+			);
+			name = Success;
+			sourceTree = "<group>";
+		};
+		5659479418DDD09A00066ECE /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				5659477B18DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif */,
+				5659477C18DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 */,
+			);
+			name = Swipe;
+			sourceTree = "<group>";
+		};
+		5659479518DDD0B000066ECE /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				5659477D18DDCF8200066ECE /* 83237__mlestn1__pop.wav */,
+				5659477E18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif */,
+				5659477F18DDCF8200066ECE /* 202230__deraj__pop-sound.wav */,
+				5659478018DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav */,
+			);
+			name = Pop;
 			sourceTree = "<group>";
 		};
 		A6B2847A18DB210D00E2654D = {
@@ -208,6 +217,8 @@
 		A6B2848518DB210E00E2654D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5689E49118DDC9D900FF1594 /* AVFoundation.framework */,
+				5689E48F18DDC9D100FF1594 /* Social.framework */,
 				A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */,
 				A6B2848618DB210E00E2654D /* Foundation.framework */,
 				A6B2848818DB210F00E2654D /* CoreGraphics.framework */,
@@ -236,7 +247,7 @@
 		A6B2848F18DB210F00E2654D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5689E46F18DDC21C00FF1594 /* Sounds */,
+				5659478F18DDCFAD00066ECE /* Sounds */,
 				A6B2849018DB210F00E2654D /* TW048-Info.plist */,
 				A6B2849118DB210F00E2654D /* InfoPlist.strings */,
 				A6B2849418DB210F00E2654D /* main.m */,
@@ -359,20 +370,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5659478518DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 in Resources */,
+				5659478A18DDCF8200066ECE /* 83237__mlestn1__pop.wav in Resources */,
+				5659478818DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif in Resources */,
+				5659478218DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav in Resources */,
+				5659478418DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav in Resources */,
+				5659478318DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav in Resources */,
+				5659478918DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 in Resources */,
 				A6B1259218DC733900D07377 /* Main.storyboard in Resources */,
-				5689E48818DDC3BE00FF1594 /* 157846__darkmast49__fightscene.mp3 in Resources */,
-				5689E47C18DDC2BD00FF1594 /* 73601__willc2-45220__swoop-thick-01.aif in Resources */,
-				5689E48218DDC2BD00FF1594 /* The Binary Code Song.mp3 in Resources */,
-				5689E48C18DDC81A00FF1594 /* 138490__randomationpictures__powerdown-2.wav in Resources */,
 				A6B2849318DB210F00E2654D /* InfoPlist.strings in Resources */,
-				5689E47B18DDC2BD00FF1594 /* 171671__fins__success-1.wav in Resources */,
-				5689E48018DDC2BD00FF1594 /* 202230__deraj__pop-sound.wav in Resources */,
-				5689E47E18DDC2BD00FF1594 /* 219005__yap-audio-production__weaponswipe03.mp3 in Resources */,
-				5689E47A18DDC2BD00FF1594 /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav in Resources */,
-				5689E48118DDC2BD00FF1594 /* 47498__carlsablowedwards__mouthpop-02.wav in Resources */,
-				5689E47F18DDC2BD00FF1594 /* 83237__mlestn1__pop.wav in Resources */,
-				5689E48318DDC2BD00FF1594 /* 67095__sunnysidesound__pop-9.aif in Resources */,
-				5689E48D18DDC81A00FF1594 /* Computer Error-SoundBible.com-1655839472.wav in Resources */,
+				5659478618DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav in Resources */,
+				5659478D18DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav in Resources */,
+				5659478718DDCF8200066ECE /* 171671__fins__success-1.wav in Resources */,
+				5659478B18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif in Resources */,
+				5659478C18DDCF8200066ECE /* 202230__deraj__pop-sound.wav in Resources */,
+				5659478E18DDCF8200066ECE /* The Binary Code Song.mp3 in Resources */,
 				A6B284A618DB210F00E2654D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

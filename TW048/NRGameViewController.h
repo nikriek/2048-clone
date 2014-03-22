@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface NRGameViewController : UIViewController
 
@@ -26,5 +27,7 @@
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender;
+//Background music Player
+@property (nonatomic) AVAudioPlayer *backgroundMusicPlayer;
 
 @end

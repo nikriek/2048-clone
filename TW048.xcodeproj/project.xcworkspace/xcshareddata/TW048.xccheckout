@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>45C206FA-7B68-4A85-AF3F-EB984EFDD41D</string>
+	<string>1790935B-16A4-4334-831B-A9CF4F381F83</string>
 	<key>IDESourceControlProjectName</key>
 	<string>TW048</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>49D75127-3A82-48CF-B1DA-F0D6FFF9EFB4</key>
-		<string>https://github.com/nikriek/2048-clone.git</string>
+		<key>371F00B8-A894-4FA9-AC5D-3CBDE4EF2D87</key>
+		<string>https://github.com/nikriek/2048-clone</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TW048.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>49D75127-3A82-48CF-B1DA-F0D6FFF9EFB4</key>
+		<key>371F00B8-A894-4FA9-AC5D-3CBDE4EF2D87</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/nikriek/2048-clone.git</string>
+	<string>https://github.com/nikriek/2048-clone</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>49D75127-3A82-48CF-B1DA-F0D6FFF9EFB4</string>
+	<string>371F00B8-A894-4FA9-AC5D-3CBDE4EF2D87</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>49D75127-3A82-48CF-B1DA-F0D6FFF9EFB4</string>
+			<string>371F00B8-A894-4FA9-AC5D-3CBDE4EF2D87</string>
 			<key>IDESourceControlWCCName</key>
-			<string>TW048</string>
+			<string>2048-clone</string>
 		</dict>
 	</array>
 </dict>
