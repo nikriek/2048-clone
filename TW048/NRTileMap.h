@@ -11,7 +11,7 @@
 #import "SKAction+Direction.h"
 
 typedef void (^NewScoreBlock)(NSInteger newScore, NSInteger offset);
-typedef void (^FinishedGameBlock)(BOOL success);
+typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
 
 @interface NRTileMap : NRBackgroundMap
 

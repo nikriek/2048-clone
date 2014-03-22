@@ -8,6 +8,7 @@
 
 #import "NRGameOverSheetViewController.h"
 #import "MZFormSheetController.h"
+#import <Social/Social.h>
 
 @interface NRGameOverSheetViewController ()
 
@@ -27,7 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.restartButton.layer.cornerRadius = 4.0;
+    self.restartButton.layer.masksToBounds = YES;
+    self.tweetButton.layer.cornerRadius = 4.0;
+    self.tweetButton.layer.masksToBounds = YES;
+    self.facebookButton.layer.cornerRadius = 4.0;
+    self.facebookButton.layer.masksToBounds = YES;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,5 +59,24 @@
     [parent mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
         // do sth
     }];
+}
+
+- (IBAction)pushedTweet:(UIButton *)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048",(int)self.score]];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+}
+
+- (IBAction)pushedFacebook:(UIButton *)sender {
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [controller setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048",(int)self.score]];
+        [self presentViewController:controller animated:YES completion:Nil];
+    }
 }
 @end

@@ -10,6 +10,7 @@
 #import "NRGameScene.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SoundPlayer.h"
+#import "NRGameOverSheetViewController.h"
 
 @implementation NRGameViewController {
     NRGameScene * scene;
@@ -36,23 +37,22 @@
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
+    
+    //make property weak to use it in blocks
+    __weak typeof(self) weakSelf = self;
+    
     // Create and configure the scene.
     scene = [NRGameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [scene.tiles setNewScoreBlock:^(NSInteger newScore, NSInteger offset) {
         //Actions for new score
+        [weakSelf updateScore:newScore withScoreOffset:offset];
     }];
     
-    [scene.tiles setFinishedGameBlock:^(BOOL success) {
+    [scene.tiles setFinishedGameBlock:^(BOOL success, NSInteger score) {
         //[soundPlayer stopBackgroundSound];
-        //Actions for end of game
-        if (success) {
-            ;
-        } else if (!success) {
-            ;
-        }
+        [weakSelf showPopUpWithScore:score andSuccess:success];
     }];
-    
     
     // Present the scene.
     [skView presentScene:scene];
@@ -82,8 +82,13 @@
     
     // present form sheet with view controller
     [self mz_presentFormSheetWithViewController:vc animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-        //do sth
+    
     }];
+    
+}
+
+-(void)updateScore:(NSInteger)score withScoreOffset:(NSInteger)offset {
+    self.scoreLabel.text = [NSString stringWithFormat:@"%i",(int)score];
     
 }
 
