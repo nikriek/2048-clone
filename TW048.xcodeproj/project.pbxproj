@@ -44,6 +44,7 @@
 		A6B284AF18DB210F00E2654D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B2848A18DB210F00E2654D /* UIKit.framework */; };
 		A6B284B718DB210F00E2654D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6B284B518DB210F00E2654D /* InfoPlist.strings */; };
 		A6B284B918DB210F00E2654D /* TW048Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B284B818DB210F00E2654D /* TW048Tests.m */; };
+		A6E79CF318DDD2C600301D99 /* Acknowledgements.md in Resources */ = {isa = PBXBuildFile; fileRef = A6E79CF218DDD2C600301D99 /* Acknowledgements.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		A6B284B418DB210F00E2654D /* TW048Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TW048Tests-Info.plist"; sourceTree = "<group>"; };
 		A6B284B618DB210F00E2654D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6B284B818DB210F00E2654D /* TW048Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TW048Tests.m; sourceTree = "<group>"; };
+		A6E79CF218DDD2C600301D99 /* Acknowledgements.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Acknowledgements.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				5659479318DDD08400066ECE /* Success */,
 				5659479418DDD09A00066ECE /* Swipe */,
 				5659479518DDD0B000066ECE /* Pop */,
+				A6E79CF218DDD2C600301D99 /* Acknowledgements.md */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				5659478B18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif in Resources */,
 				5659478C18DDCF8200066ECE /* 202230__deraj__pop-sound.wav in Resources */,
 				5659478E18DDCF8200066ECE /* The Binary Code Song.mp3 in Resources */,
+				A6E79CF318DDD2C600301D99 /* Acknowledgements.md in Resources */,
 				A6B284A618DB210F00E2654D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
