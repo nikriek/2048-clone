@@ -27,14 +27,12 @@
     if ([tileMatrix countOfTiles] <= 16) {
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
-                NRTile *tile = [[NRTile alloc] init];
-                tile.currentValue = 32;
                 CGFloat xCoordinate = (CGFloat)x;
                 CGFloat yCoordinate = (CGFloat)y;
                 CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
                 if ([tileMatrix tileAtPosition:position] == nil) {
-                    [tile setPath:CGPathCreateWithRoundedRect(CGRectMake(position.x, position.y, 60.0,60.0), 4, 4, nil)];
-                    tile.lineWidth = 0.0;
+                    NRTile *tile = [[NRTile alloc] initWithPosition:position];
+                    tile.currentValue = 32;
                     [tileMatrix insertTile:tile atPosition:position];
                     [self addChild:tile];
                     break;
@@ -55,6 +53,7 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
+    /*
     switch (direction) {
         case kDirectionUp:
             moveNodeUp = [SKAction moveByX:0 y:68.0 duration:0.05];
@@ -70,7 +69,7 @@
             break;
         default:
             break;
-    }
+    }*/
 }
 
 @end

@@ -20,6 +20,17 @@
     }
     return self;
 }
+
+- (instancetype)initWithPosition:(CGPoint)position
+{
+    self = [super init];
+    if (self) {
+        [self setPath:CGPathCreateWithRoundedRect(CGRectMake(position.x, position.y, 60.0,60.0), 4, 4, nil)];
+        self.lineWidth = 0.0;
+    }
+    return self;
+}
+
 -(void)setCurrentValue:(NSInteger)currentValue {
     _currentValue = currentValue;
 
