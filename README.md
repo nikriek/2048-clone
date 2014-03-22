@@ -1,7 +1,7 @@
 2048 clone
 =========
 
-This is an open source clone of the famous 2048 game ([git.io/2048](http://git.io/2048) for iOS devices. 
+This is an open source clone of the famous 2048 game ([git.io/2048](http://git.io/2048)) for iOS devices. 
 
 ## Contributers
 * Niklas Riekenbrauck ([@nikriek](http://twitter.com/nikriek))
