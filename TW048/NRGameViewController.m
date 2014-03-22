@@ -34,6 +34,14 @@
     // Create and configure the scene.
     scene = [NRGameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
+    [scene.tiles setNewScoreBlock:^(NSInteger newScore, NSInteger offset) {
+        //Actions for new score
+    }];
+    
+    [scene.tiles setFinishedGameBlock:^(BOOL success) {
+        //Actions for end of game
+    }];
+    
     
     // Present the scene.
     [skView presentScene:scene];
@@ -61,13 +69,13 @@
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender {
     if (sender == self.upSwipeGestureRecognizer) {
-         [scene performedSwipeGestureInDirection:kDirectionUp];
+         [scene.tiles performedSwipeGestureInDirection:kDirectionUp];
     } else if (sender == self.downSwipeGestureRecognizer) {
-        [scene performedSwipeGestureInDirection:kDirectionDown];
+        [scene.tiles performedSwipeGestureInDirection:kDirectionDown];
     } else if (sender == self.leftSwipeGestureRecognizer) {
-        [scene performedSwipeGestureInDirection:kDirectionLeft];
+        [scene.tiles performedSwipeGestureInDirection:kDirectionLeft];
     } else if (sender == self.rightSwipeGestureRecognizer) {
-        [scene performedSwipeGestureInDirection:kDirectionRight];
+        [scene.tiles performedSwipeGestureInDirection:kDirectionRight];
     }
 }
 @end

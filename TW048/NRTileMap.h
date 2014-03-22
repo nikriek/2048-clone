@@ -10,10 +10,16 @@
 #import "NRBackgroundMap.h"
 #import "SKAction+Direction.h"
 
+typedef void (^NewScoreBlock)(NSInteger newScore, NSInteger offset);
+typedef void (^FinishedGameBlock)(BOOL success);
+
 @interface NRTileMap : NRBackgroundMap
 
 -(void)setNewTileAtRandomPosition;
 
 -(void)performedSwipeGestureInDirection:(Direction)direction;
+
+@property (nonatomic, copy) NewScoreBlock newScoreBlock;
+@property (nonatomic, copy) FinishedGameBlock finishedGameBlock;
 
 @end

@@ -8,8 +8,10 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "SKAction+Direction.h"
+#import "NRTileMap.h"
+
 @interface NRGameScene : SKScene
 
--(void)performedSwipeGestureInDirection:(Direction)direction;
+@property (nonatomic,retain) NRTileMap *tiles;
 
 @end

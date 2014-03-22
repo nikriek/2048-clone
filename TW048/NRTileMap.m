@@ -46,8 +46,8 @@
 -(void)moveTile:(NRTile*)tile toPosition:(CGPoint)newPosition {
     CGPoint oldPosition = [tileMatrix positionOfTile:tile];
     if (oldPosition.x != -1.0) {
-        SKAction *moveNodeUp;
-        [tile runAction: moveNodeUp];
+        SKAction *moveAction;
+        [tile runAction: moveAction];
     }
     
 }
