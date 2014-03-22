@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
 //
 
-#import "Sounds.h"
+#import "SoundPlayer.h"
 
 #import <AVFoundation/AVFoundation.h>
 
-@interface Sounds ()
+@interface SoundPlayer ()
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 @property (nonatomic) AVAudioPlayer *backgroundMusicPlayer;
 @end
 
-@implementation Sounds
+@implementation SoundPlayer
 
 -(void)playSoundOfType:(Soundtype)soundtype{
     

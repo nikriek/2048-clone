@@ -9,14 +9,20 @@
 #import "NRGameViewController.h"
 #import "NRGameScene.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SoundPlayer.h"
+
 
 @implementation NRGameViewController {
     NRGameScene * scene;
+    SoundPlayer *soundPlayer;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // SoundPlayer
+    soundPlayer = [SoundPlayer new];
+    [soundPlayer playBackgroundSound];
     
     //Make round corners
     self.scoreBackgroundView.layer.cornerRadius = 4.0;
@@ -39,6 +45,7 @@
     }];
     
     [scene.tiles setFinishedGameBlock:^(BOOL success) {
+        [soundPlayer stopBackgroundSound];
         //Actions for end of game
         if (success) {
             ;

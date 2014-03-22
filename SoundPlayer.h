@@ -15,7 +15,7 @@ typedef enum Soundtype:NSInteger {
     kPop
 } Soundtype;
 
-@interface Sounds: NSObject
+@interface SoundPlayer: NSObject
 
 - (void)playSoundOfType:(Soundtype)soundtype;
 

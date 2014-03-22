@@ -20,7 +20,7 @@
 		5659478C18DDCF8200066ECE /* 202230__deraj__pop-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477F18DDCF8200066ECE /* 202230__deraj__pop-sound.wav */; };
 		5659478D18DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659478018DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav */; };
 		5659478E18DDCF8200066ECE /* The Binary Code Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */; };
-		5659479E18DDE04600066ECE /* Sounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659479D18DDE04600066ECE /* Sounds.m */; };
+		5659479E18DDE04600066ECE /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659479D18DDE04600066ECE /* SoundPlayer.m */; };
 		5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E48F18DDC9D100FF1594 /* Social.framework */; };
 		5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E49118DDC9D900FF1594 /* AVFoundation.framework */; };
 		A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */; };
@@ -72,8 +72,8 @@
 		5659477F18DDCF8200066ECE /* 202230__deraj__pop-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "202230__deraj__pop-sound.wav"; sourceTree = "<group>"; };
 		5659478018DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "47498__carlsablowedwards__mouthpop-02.wav"; sourceTree = "<group>"; };
 		5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Binary Code Song.mp3"; sourceTree = "<group>"; };
-		5659479C18DDE04600066ECE /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sounds.h; path = ../Sounds.h; sourceTree = "<group>"; };
-		5659479D18DDE04600066ECE /* Sounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sounds.m; path = ../Sounds.m; sourceTree = "<group>"; };
+		5659479C18DDE04600066ECE /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundPlayer.h; path = ../SoundPlayer.h; sourceTree = "<group>"; };
+		5659479D18DDE04600066ECE /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundPlayer.m; path = ../SoundPlayer.m; sourceTree = "<group>"; };
 		5689E48F18DDC9D100FF1594 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5689E49118DDC9D900FF1594 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -242,8 +242,8 @@
 				A6B2849A18DB210F00E2654D /* Main.storyboard */,
 				A6B2849D18DB210F00E2654D /* NRGameViewController.h */,
 				A6B2849E18DB210F00E2654D /* NRGameViewController.m */,
-				5659479C18DDE04600066ECE /* Sounds.h */,
-				5659479D18DDE04600066ECE /* Sounds.m */,
+				5659479C18DDE04600066ECE /* SoundPlayer.h */,
+				5659479D18DDE04600066ECE /* SoundPlayer.m */,
 				A6D44D7A18DB564C004619FE /* Game Scene */,
 				A6B284A518DB210F00E2654D /* Images.xcassets */,
 				5659478F18DDCFAD00066ECE /* Sounds */,
@@ -414,7 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */,
-				5659479E18DDE04600066ECE /* Sounds.m in Sources */,
+				5659479E18DDE04600066ECE /* SoundPlayer.m in Sources */,
 				A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */,
 				A6B2849F18DB210F00E2654D /* NRGameViewController.m in Sources */,
 				A6B2849918DB210F00E2654D /* NRAppDelegate.m in Sources */,
