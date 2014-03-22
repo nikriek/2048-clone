@@ -8,7 +8,9 @@
 
 #import "NRTile.h"
 
-@implementation NRTile 
+@implementation NRTile {
+    SKLabelNode *label;
+}
 @synthesize currentValue = _currentValue;
 
 
@@ -27,6 +29,11 @@
     self = [self initWithPosition:position];
     if (self) {
         [self setCurrentValue: 2];
+        label = [SKLabelNode labelNodeWithFontNamed:@"Helevetica Neue"];
+        label.position = CGPointMake(position.x+30.0, position.y+30.0);
+        label.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+        [self addChild:label];
     }
     return self;
 }
@@ -86,30 +93,34 @@
             break;
     }
     
+    /*
     //pop out animation
     if (currentValue != 0) {
         SKAction *popOut = [SKAction scaleTo:1.1 duration:0.05];
         SKAction *popIn = [SKAction scaleTo:1.0 duration:0.05];
         SKAction *sequence = [SKAction sequence:@[popOut,popIn]];
         [self runAction:sequence];
-    }
-
+    }*/
     
-    
-    /*
     // Set Label font color
-    if (currentValue < 8) {
+    if (currentValue < 8 || label != nil) {
         label.fontColor = UIColorFromRGB(0x776e65);
     } else {
         label.fontColor = UIColorFromRGB(0xf9f6f2);
     }
     
     // Set the label text
-    if (currentValue == 0) {
-        label.text = @"t";
+    if (label == nil) {
+        [label setHidden:YES];
     } else {
+        [label setHidden:NO];
         label.text = [NSString stringWithFormat:@"%i",currentValue];
-    }*/
+    }
+    
+    // Size down the Label
+    while (label.frame.size.width >= 60.0) {
+        label.fontSize--;
+    }
 }
 
 @end
