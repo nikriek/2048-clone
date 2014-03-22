@@ -8,9 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface NRMap : SKNode
-
-@property (nonatomic) CGSize gridSize;
+@interface NRBackgroundMap : SKNode
 
 -(void)generate;
 -(CGPoint)positionForTileWithCoordinates:(CGPoint)coordinates;

@@ -7,7 +7,7 @@
 //
 
 #import "NRGameScene.h"
-#import "NRMap.h"
+#import "NRBackgroundMap.h"
 #import "NRTileMap.h"
 
 //http://www.raywenderlich.com/49502/procedural-level-generation-in-games-tutorial-part-1
@@ -22,7 +22,7 @@
         self.backgroundColor = UIColorFromRGB(0xbbada0);
         
         // Represents the background
-        NRMap *map = [NRMap node];
+        NRBackgroundMap *map = [NRBackgroundMap node];
         [map generate];
         [self addChild:map];
     

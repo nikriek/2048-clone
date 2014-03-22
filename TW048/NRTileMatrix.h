@@ -20,4 +20,5 @@
 -(NSInteger)countOfTiles;
 
 -(CGPoint)positionOfTile:(NRTile*)tile;
+
 @end

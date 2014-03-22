@@ -7,10 +7,10 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "NRMap.h"
+#import "NRBackgroundMap.h"
 #import "SKAction+Direction.h"
 
-@interface NRTileMap : NRMap
+@interface NRTileMap : NRBackgroundMap
 
 -(void)setNewTileAtRandomPosition;
 

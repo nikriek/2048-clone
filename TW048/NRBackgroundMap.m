@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
 //
 
-#import "NRMap.h"
+#import "NRBackgroundMap.h"
 #import "NRTile.h"
 
-@implementation NRMap
+@implementation NRBackgroundMap
 
 -(void)generate {
     for (int y = 0; y < 4; y++) {

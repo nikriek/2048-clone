@@ -11,7 +11,7 @@
 		A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1118DCF0B2001A68F0 /* NRTile.m */; };
 		A6523F1518DD07E8001A68F0 /* SKAction+Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1418DD07E7001A68F0 /* SKAction+Direction.m */; };
 		A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1718DD19FA001A68F0 /* NRTileMatrix.m */; };
-		A6A4005C18DC762900E11F35 /* NRMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4005B18DC762900E11F35 /* NRMap.m */; };
+		A6A4005C18DC762900E11F35 /* NRBackgroundMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4005B18DC762900E11F35 /* NRBackgroundMap.m */; };
 		A6A4005F18DC76E800E11F35 /* NRTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4005E18DC76E800E11F35 /* NRTileMap.m */; };
 		A6B1259218DC733900D07377 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B2849A18DB210F00E2654D /* Main.storyboard */; };
 		A6B2848718DB210F00E2654D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B2848618DB210E00E2654D /* Foundation.framework */; };
@@ -49,8 +49,8 @@
 		A6523F1418DD07E7001A68F0 /* SKAction+Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKAction+Direction.m"; sourceTree = "<group>"; };
 		A6523F1618DD19FA001A68F0 /* NRTileMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTileMatrix.h; sourceTree = "<group>"; };
 		A6523F1718DD19FA001A68F0 /* NRTileMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTileMatrix.m; sourceTree = "<group>"; };
-		A6A4005A18DC762900E11F35 /* NRMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRMap.h; sourceTree = "<group>"; };
-		A6A4005B18DC762900E11F35 /* NRMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRMap.m; sourceTree = "<group>"; };
+		A6A4005A18DC762900E11F35 /* NRBackgroundMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRBackgroundMap.h; sourceTree = "<group>"; };
+		A6A4005B18DC762900E11F35 /* NRBackgroundMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRBackgroundMap.m; sourceTree = "<group>"; };
 		A6A4005D18DC76E800E11F35 /* NRTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTileMap.h; sourceTree = "<group>"; };
 		A6A4005E18DC76E800E11F35 /* NRTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTileMap.m; sourceTree = "<group>"; };
 		A6B2848318DB210E00E2654D /* TW048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TW048.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,8 +186,8 @@
 				A6B284A118DB210F00E2654D /* NRGameScene.m */,
 				A6A4005D18DC76E800E11F35 /* NRTileMap.h */,
 				A6A4005E18DC76E800E11F35 /* NRTileMap.m */,
-				A6A4005A18DC762900E11F35 /* NRMap.h */,
-				A6A4005B18DC762900E11F35 /* NRMap.m */,
+				A6A4005A18DC762900E11F35 /* NRBackgroundMap.h */,
+				A6A4005B18DC762900E11F35 /* NRBackgroundMap.m */,
 				A6523F1018DCF0B2001A68F0 /* NRTile.h */,
 				A6523F1118DCF0B2001A68F0 /* NRTile.m */,
 				A6523F1318DD07E7001A68F0 /* SKAction+Direction.h */,
@@ -300,7 +300,7 @@
 				A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */,
 				A6B2849F18DB210F00E2654D /* NRGameViewController.m in Sources */,
 				A6B2849918DB210F00E2654D /* NRAppDelegate.m in Sources */,
-				A6A4005C18DC762900E11F35 /* NRMap.m in Sources */,
+				A6A4005C18DC762900E11F35 /* NRBackgroundMap.m in Sources */,
 				A6B284A218DB210F00E2654D /* NRGameScene.m in Sources */,
 				A6A4005F18DC76E800E11F35 /* NRTileMap.m in Sources */,
 				A6B2849518DB210F00E2654D /* main.m in Sources */,
