@@ -114,7 +114,9 @@
 }
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender {
+    
     //[self showPopUpWithScore:100 andSuccess:YES];
+    
     if (sender == self.upSwipeGestureRecognizer) {
          [scene.tiles performedSwipeGestureInDirection:kDirectionUp];
     } else if (sender == self.downSwipeGestureRecognizer) {

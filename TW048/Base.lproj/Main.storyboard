@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iwh-ie-V3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="-119"/>
+            <point key="canvasLocation" x="722" y="-128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EK9-fV-tpE">
@@ -200,7 +200,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1287" y="-134"/>
+            <point key="canvasLocation" x="1223" y="-128"/>
         </scene>
         <!--Table View Controller - About-->
         <scene sceneID="3rs-0q-Xd0">
@@ -298,7 +298,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2d-um-eWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="628"/>
+            <point key="canvasLocation" x="722" y="575"/>
         </scene>
         <!--Game Over Sheet View Controller-->
         <scene sceneID="JDg-hI-vt1">
@@ -380,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUb-dU-1nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="1334"/>
+            <point key="canvasLocation" x="1659" y="67"/>
         </scene>
         <!--Table View Controller - Settings-->
         <scene sceneID="Lta-xj-xsU">
@@ -429,7 +429,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlE-Xn-ZpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="515"/>
+            <point key="canvasLocation" x="1223" y="575"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
