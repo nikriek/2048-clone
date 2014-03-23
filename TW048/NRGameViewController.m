@@ -16,6 +16,7 @@
     NRGameScene * scene;
     SoundPlayer *soundPlayer;
 }
+@synthesize scoreLabel;
 
 - (void)viewDidLoad
 {

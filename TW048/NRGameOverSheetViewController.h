@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *tweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *facebookButton;
 
-
 @property (nonatomic) NSInteger score;
 
 @end
