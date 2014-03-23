@@ -13,7 +13,6 @@
 		5659478518DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659477818DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 */; };
 		5659478618DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477918DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */; };
 		5659478718DDCF8200066ECE /* 171671__fins__success-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477A18DDCF8200066ECE /* 171671__fins__success-1.wav */; };
-		5659478818DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif in Resources */ = {isa = PBXBuildFile; fileRef = 5659477B18DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif */; };
 		5659478918DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659477C18DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 */; };
 		5659478A18DDCF8200066ECE /* 83237__mlestn1__pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477D18DDCF8200066ECE /* 83237__mlestn1__pop.wav */; };
 		5659478B18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif in Resources */ = {isa = PBXBuildFile; fileRef = 5659477E18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif */; };
@@ -22,8 +21,8 @@
 		5659478E18DDCF8200066ECE /* The Binary Code Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */; };
 		5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E48F18DDC9D100FF1594 /* Social.framework */; };
 		5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E49118DDC9D900FF1594 /* AVFoundation.framework */; };
-		56C1174018DF941300F6E79B /* LauchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C1173E18DF941300F6E79B /* LauchImage@2x.png */; };
-		56C1174118DF941300F6E79B /* LauchImageR4.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C1173F18DF941300F6E79B /* LauchImageR4.png */; };
+		56C1174018DF941300F6E79B /* LauchImageR4.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C1173E18DF941300F6E79B /* LauchImageR4.png */; };
+		56C1174118DF941300F6E79B /* LauchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C1173F18DF941300F6E79B /* LauchImage@2x.png */; };
 		56C1175418DF944D00F6E79B /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C1174418DF944D00F6E79B /* AppIcon29x29.png */; };
 		56C1175518DF944D00F6E79B /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C1174518DF944D00F6E79B /* AppIcon29x29@2x.png */; };
 		56C1175618DF944D00F6E79B /* AppIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C1174618DF944D00F6E79B /* AppIcon40x40.png */; };
@@ -93,7 +92,6 @@
 		5659477818DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 157846__darkmast49__fightscene.mp3; sourceTree = "<group>"; };
 		5659477918DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav"; sourceTree = "<group>"; };
 		5659477A18DDCF8200066ECE /* 171671__fins__success-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "171671__fins__success-1.wav"; sourceTree = "<group>"; };
-		5659477B18DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "73601__willc2-45220__swoop-thick-01.aif"; sourceTree = "<group>"; };
 		5659477C18DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "219005__yap-audio-production__weaponswipe03.mp3"; sourceTree = "<group>"; };
 		5659477D18DDCF8200066ECE /* 83237__mlestn1__pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 83237__mlestn1__pop.wav; sourceTree = "<group>"; };
 		5659477E18DDCF8200066ECE /* 67095__sunnysidesound__pop-9.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "67095__sunnysidesound__pop-9.aif"; sourceTree = "<group>"; };
@@ -102,8 +100,8 @@
 		5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Binary Code Song.mp3"; sourceTree = "<group>"; };
 		5689E48F18DDC9D100FF1594 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5689E49118DDC9D900FF1594 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		56C1173E18DF941300F6E79B /* LauchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LauchImage@2x.png"; sourceTree = "<group>"; };
-		56C1173F18DF941300F6E79B /* LauchImageR4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LauchImageR4.png; sourceTree = "<group>"; };
+		56C1173E18DF941300F6E79B /* LauchImageR4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LauchImageR4.png; sourceTree = "<group>"; };
+		56C1173F18DF941300F6E79B /* LauchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LauchImage@2x.png"; sourceTree = "<group>"; };
 		56C1174418DF944D00F6E79B /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon29x29.png; sourceTree = "<group>"; };
 		56C1174518DF944D00F6E79B /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon29x29@2x.png"; sourceTree = "<group>"; };
 		56C1174618DF944D00F6E79B /* AppIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon40x40.png; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 		5659479418DDD09A00066ECE /* Swipe */ = {
 			isa = PBXGroup;
 			children = (
-				5659477B18DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif */,
 				5659477C18DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 */,
 			);
 			name = Swipe;
@@ -270,8 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				56C1174318DF944D00F6E79B /* App Icon [Squared] */,
-				56C1173E18DF941300F6E79B /* LauchImage@2x.png */,
-				56C1173F18DF941300F6E79B /* LauchImageR4.png */,
+				56C1173E18DF941300F6E79B /* LauchImageR4.png */,
+				56C1173F18DF941300F6E79B /* LauchImage@2x.png */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -514,10 +511,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56C1174018DF941300F6E79B /* LauchImage@2x.png in Resources */,
+				56C1174018DF941300F6E79B /* LauchImageR4.png in Resources */,
 				5659478518DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 in Resources */,
 				5659478A18DDCF8200066ECE /* 83237__mlestn1__pop.wav in Resources */,
-				5659478818DDCF8200066ECE /* 73601__willc2-45220__swoop-thick-01.aif in Resources */,
 				5659478218DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav in Resources */,
 				5659478418DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav in Resources */,
 				5659478318DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav in Resources */,
@@ -527,7 +523,7 @@
 				A6B1259218DC733900D07377 /* Main.storyboard in Resources */,
 				56C1175518DF944D00F6E79B /* AppIcon29x29@2x.png in Resources */,
 				A6B2849318DB210F00E2654D /* InfoPlist.strings in Resources */,
-				56C1174118DF941300F6E79B /* LauchImageR4.png in Resources */,
+				56C1174118DF941300F6E79B /* LauchImage@2x.png in Resources */,
 				56C1175D18DF944D00F6E79B /* AppIcon60x60@2x.png in Resources */,
 				5659478618DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav in Resources */,
 				56C1176318DF944D00F6E79B /* iTunesArtwork@2x.png in Resources */,

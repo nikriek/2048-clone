@@ -58,12 +58,12 @@
     // Create and configure the scene.
     scene = [NRGameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
-    [scene.tiles setNewScoreBlock:^(NSInteger newScore, NSInteger offset) {
+    [scene.mapTiles setNewScoreBlock:^(NSInteger newScore, NSInteger offset) {
         //Actions for new score
         [weakSelf updateScore:newScore withScoreOffset:offset];
     }];
     
-    [scene.tiles setFinishedGameBlock:^(BOOL success, NSInteger score) {
+    [scene.mapTiles setFinishedGameBlock:^(BOOL success, NSInteger score) {
         //[soundPlayer stopBackgroundSound];
         [weakSelf showPopUpWithScore:score andSuccess:success];
     }];
@@ -118,13 +118,13 @@
     //[self showPopUpWithScore:100 andSuccess:YES];
     
     if (sender == self.upSwipeGestureRecognizer) {
-         [scene.tiles performedSwipeGestureInDirection:kDirectionUp];
+         [scene.mapTiles performedSwipeGestureInDirection:kDirectionUp];
     } else if (sender == self.downSwipeGestureRecognizer) {
-        [scene.tiles performedSwipeGestureInDirection:kDirectionDown];
+        [scene.mapTiles performedSwipeGestureInDirection:kDirectionDown];
     } else if (sender == self.leftSwipeGestureRecognizer) {
-        [scene.tiles performedSwipeGestureInDirection:kDirectionLeft];
+        [scene.mapTiles performedSwipeGestureInDirection:kDirectionLeft];
     } else if (sender == self.rightSwipeGestureRecognizer) {
-        [scene.tiles performedSwipeGestureInDirection:kDirectionRight];
+        [scene.mapTiles performedSwipeGestureInDirection:kDirectionRight];
     }
 }
 

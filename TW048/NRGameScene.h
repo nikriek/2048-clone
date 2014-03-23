@@ -12,6 +12,6 @@
 
 @interface NRGameScene : SKScene
 
-@property (nonatomic,retain) NRTileMap *tiles;
+@property (nonatomic,retain) NRTileMap *mapTiles;
 
 @end

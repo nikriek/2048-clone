@@ -30,7 +30,7 @@
             soundURL =[[NSBundle mainBundle] URLForResource:@"171671__fins__success-1" withExtension:@"wav"];
             break;
         case kSwipe:
-            soundURL =[[NSBundle mainBundle] URLForResource:@"73601__willc2-45220__swoop-thick-01" withExtension:@"wav"];
+            soundURL =[[NSBundle mainBundle] URLForResource:@"73601__willc2-45220__swoop-thick-01" withExtension:@"aif"];
             break;
         case kPop:
             soundURL =[[NSBundle mainBundle] URLForResource:@"47498__carlsablowedwards__mouthpop-02" withExtension:@"wav"];
@@ -60,7 +60,7 @@
             return @"171671__fins__success-1.wav";
             break;
         case kSwipe:
-            return @"73601__willc2-45220__swoop-thick-01.wav";
+            return @"219005__yap-audio-production__weaponswipe03.mp3";
             break;
         case kPop:
             return @"47498__carlsablowedwards__mouthpop-02.wav";

@@ -24,9 +24,9 @@
         [self addChild:map];
     
         // Represents an actual tile map
-        self.tiles = [NRTileMap node];
-        [self.tiles setNewTileAtRandomPosition];
-        [self addChild:self.tiles];
+        self.mapTiles = [NRTileMap node];
+        [self.mapTiles setNewTileAtRandomPosition];
+        [self addChild:self.mapTiles];
         
     }
     return self;
