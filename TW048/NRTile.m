@@ -89,6 +89,9 @@
         case 2048:
             self.strokeColor = self.fillColor = UIColorFromRGB(0xedc22e);
             break;
+        case 4096:
+            self.strokeColor = self.fillColor = UIColorFromRGB(0x000000);
+            break;
         default:
             self.strokeColor = self.fillColor = UIColorFromRGB(0x3c3a32);
             break;
