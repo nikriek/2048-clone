@@ -59,7 +59,9 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
-
+    for (NRTile *tile in self.children) {
+        [tile setCurrentValue:64];
+    }
     /*
     switch (direction) {
         case kDirectionUp:

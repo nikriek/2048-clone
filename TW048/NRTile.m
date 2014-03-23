@@ -20,6 +20,12 @@
     if (self) {
         [self setPath:CGPathCreateWithRoundedRect(CGRectMake(position.x, position.y, 60.0,60.0), 4, 4, nil)];
         self.lineWidth = 0.0;
+        
+        label = [SKLabelNode labelNodeWithFontNamed:@"Helevetica Neue"];
+        label.position = CGPointMake(position.x+30.0, position.y+30.0);
+        label.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+        [self addChild:label];
     }
     return self;
 }
@@ -29,11 +35,6 @@
     self = [self initWithPosition:position];
     if (self) {
         [self setCurrentValue: 2];
-        label = [SKLabelNode labelNodeWithFontNamed:@"Helevetica Neue"];
-        label.position = CGPointMake(position.x+30.0, position.y+30.0);
-        label.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
-        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
-        [self addChild:label];
     }
     return self;
 }
@@ -93,24 +94,29 @@
             break;
     }
     
-    /*
     //pop out animation
     if (currentValue != 0) {
-        SKAction *popOut = [SKAction scaleTo:1.1 duration:0.05];
-        SKAction *popIn = [SKAction scaleTo:1.0 duration:0.05];
+        SKAction *popOutScale = [SKAction scaleTo:1.1 duration:0.05];
+        SKAction *popOutMove = [SKAction moveByX:-3.0 y:-3.0 duration:0.05];
+        SKAction *popOut = [SKAction group:@[popOutScale,popOutMove]];
+        
+        SKAction *popInScale = [SKAction scaleTo:1.0 duration:0.05];
+        SKAction *popInMove = [SKAction moveByX:3.0 y:3.0 duration:0.05];
+        SKAction *popIn = [SKAction group:@[popInScale,popInMove]];
+        
         SKAction *sequence = [SKAction sequence:@[popOut,popIn]];
         [self runAction:sequence];
-    }*/
+    }
     
     // Set Label font color
-    if (currentValue < 8 || label != nil) {
+    if (currentValue < 8) {
         label.fontColor = UIColorFromRGB(0x776e65);
     } else {
-        label.fontColor = UIColorFromRGB(0xf9f6f2);
+        label.fontColor = UIColorFromRGB(0xFFFFFF);
     }
     
     // Set the label text
-    if (label == nil) {
+    if (currentValue == 0) {
         [label setHidden:YES];
     } else {
         [label setHidden:NO];

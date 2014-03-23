@@ -25,7 +25,6 @@
     self.tweetButton.layer.masksToBounds = YES;
     self.facebookButton.layer.cornerRadius = 4.0;
     self.facebookButton.layer.masksToBounds = YES;
-
 }
 
 - (void)didReceiveMemoryWarning

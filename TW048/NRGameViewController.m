@@ -107,8 +107,7 @@
 }
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender {
-    [self showPopUpWithScore:100 andSuccess:YES];
-    
+    //[self showPopUpWithScore:100 andSuccess:YES];
     if (sender == self.upSwipeGestureRecognizer) {
          [scene.tiles performedSwipeGestureInDirection:kDirectionUp];
     } else if (sender == self.downSwipeGestureRecognizer) {
@@ -118,5 +117,9 @@
     } else if (sender == self.rightSwipeGestureRecognizer) {
         [scene.tiles performedSwipeGestureInDirection:kDirectionRight];
     }
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [soundPlayer stopBackgroundSound];
 }
 @end
