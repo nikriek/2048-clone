@@ -10,7 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "MZFormSheetController.h"
 
-@interface NRGameViewController : MZFormSheetController
+@interface NRGameViewController : MZFormSheetController 
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bestLabel;

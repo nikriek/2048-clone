@@ -20,6 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Configure form sheet
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
+    [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
+    
     // SoundPlayer
     soundPlayer = [SoundPlayer new];
     [soundPlayer playBackgroundSound];
@@ -31,6 +36,12 @@
     self.bestBackgroundView.layer.masksToBounds = YES;
     self.gamepadView.layer.cornerRadius = 8.0;
     self.gamepadView.layer.masksToBounds = YES;
+    
+    [self prepareGame];
+}
+
+-(void)prepareGame {
+    self.scoreLabel.text = @"0";
     
     // Configure the view.
     SKView * skView = (SKView *)self.gamepadView;
@@ -58,38 +69,40 @@
     [skView presentScene:scene];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
+
 -(void)showPopUpWithScore:(NSInteger)score andSuccess:(BOOL)success {
+    
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sheet"];
     
-    // present form sheet with view controller
-    [self mz_presentFormSheetWithViewController:vc animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:vc];
     
+    formSheet.shouldCenterVertically = YES;
+    //formSheet.shouldDismissOnBackgroundViewTap = YES;
+    
+    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController) {
+        NRGameOverSheetViewController *viewController = (NRGameOverSheetViewController *)presentedFSViewController;
+        viewController.score = score;
+        if (success) {
+            viewController.statusTextLabel.text = @"You win!";
+        } else {
+            viewController.statusTextLabel.text = @"Game over!";
+        }
+        viewController.scoreTextLabel.text = [NSString stringWithFormat:@"You scored %i points",(int)score];
+    };
+    
+    [self mz_presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        
     }];
     
 }
 
 -(void)updateScore:(NSInteger)score withScoreOffset:(NSInteger)offset {
     self.scoreLabel.text = [NSString stringWithFormat:@"%i",(int)score];
-    
 }
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender {

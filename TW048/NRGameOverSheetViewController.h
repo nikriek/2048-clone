@@ -15,7 +15,7 @@
 - (IBAction)pushedTweet:(UIButton *)sender;
 - (IBAction)pushedFacebook:(UIButton *)sender;
 
-
+@property (weak, nonatomic) IBOutlet UILabel *statusTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreTextLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *restartButton;

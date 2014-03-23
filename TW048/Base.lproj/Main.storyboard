@@ -374,6 +374,7 @@
                         <outlet property="facebookButton" destination="Pg9-cd-TSD" id="yFS-dK-yhz"/>
                         <outlet property="restartButton" destination="ExI-8B-IkX" id="Tnu-7P-Izl"/>
                         <outlet property="scoreTextLabel" destination="dBQ-Rh-0WK" id="sSJ-Cc-17n"/>
+                        <outlet property="statusTextLabel" destination="K4S-QH-c8H" id="FFj-Jl-PjH"/>
                         <outlet property="tweetButton" destination="2Pv-Hu-sCp" id="XVB-lQ-7Pt"/>
                     </connections>
                 </viewController>
