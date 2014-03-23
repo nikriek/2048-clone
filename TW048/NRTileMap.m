@@ -9,6 +9,7 @@
 #import "NRTileMap.h"
 #import "NRTile.h"
 #import "NRTileMatrix.h"
+#import "SoundPlayer.h"
 
 @implementation NRTileMap {
     NRTileMatrix *tileMatrix;
@@ -24,43 +25,42 @@
 }
 
 -(void)setNewTileAtRandomPosition {
-    if ([tileMatrix countOfTiles] < 16) {
-        for (int x = 0; x < 4; x++) {
-            BOOL shouldBreak = NO;
-            for (int y = 0; y < 4; y++) {
-                CGFloat xCoordinate = (CGFloat)x;
-                CGFloat yCoordinate = (CGFloat)y;
-                CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
-                if ([tileMatrix tileAtCoordinates:CGPointMake(xCoordinate, yCoordinate)] == nil) {
-                    NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
-                    [tile setCurrentValue:2];
-                    [tileMatrix insertTile:tile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
-                    [self addChild:tile];
-                    shouldBreak = YES;
-                    break;
-                }
-            }
-            if (shouldBreak == YES) {
+    for (int x = 0; x < 4; x++) {
+        BOOL shouldBreak = NO;
+        for (int y = 0; y < 4; y++) {
+            CGFloat xCoordinate = (CGFloat)x;
+            CGFloat yCoordinate = (CGFloat)y;
+            CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
+            if ([tileMatrix tileAtCoordinates:CGPointMake(xCoordinate, yCoordinate)] == nil) {
+                NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
+                [tile setCurrentValue:2];
+                [tileMatrix insertTile:tile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
+                [self addChild:tile];
+                shouldBreak = YES;
                 break;
             }
+        }
+        if (shouldBreak == YES) {
+            break;
         }
     }
 }
 
 -(void)moveTile:(NRTile*)tile toPosition:(CGPoint)newPosition {
     CGPoint oldPosition = [tileMatrix coordinatesOfTile:tile];
-    if (oldPosition.x != -1.0) {
+    if (oldPosition.x != -1.0 && [NRTileMatrix coordinatesInRightRange:newPosition]) {
+        [tileMatrix moveTile:tile from:oldPosition to:newPosition];
         SKAction *moveAction;
         CGSize delta = [self deltaForCoordinates:oldPosition andCoordinates:newPosition];
         moveAction = [SKAction moveByX:delta.width y:delta.height duration:0.1];
         [tile runAction: moveAction];
     }
-    
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
+    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
     for (NRTile *tile in self.children) {
-        [tile setCurrentValue:64];
+        [self moveTile:tile toPosition:CGPointMake(0.0, 3.0)];
     }
     /*
     switch (direction) {

@@ -23,4 +23,6 @@ typedef enum Soundtype:NSInteger {
 - (void)stopBackgroundSound;
 - (BOOL)backgroundSoundOn;
 
++(NSString*)soundNameOfType:(Soundtype)type;
+
 @end

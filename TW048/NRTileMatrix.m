@@ -27,22 +27,28 @@
 #pragma mark - Tile matrix related methods
 
 -(NRTile*)tileAtCoordinates:(CGPoint)position {
-    id obj = tileMatrix[(NSInteger)position.x * 4 + (NSInteger)position.y];
-    if ([obj isMemberOfClass:[NRTile class]]) {
-        return (NRTile*)obj;
+    if ([NRTileMatrix coordinatesInRightRange:position]) {
+        id obj = tileMatrix[(NSInteger)position.x * 4 + (NSInteger)position.y];
+        if ([obj isMemberOfClass:[NRTile class]]) {
+            return (NRTile*)obj;
+        } else {
+            return nil;
+        }
     } else {
         return nil;
     }
+    
 }
 
 -(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)position {
-    if ((NSInteger)position.x * 4 + (NSInteger)position.y < tileMatrix.count) {
+    if ([NRTileMatrix coordinatesInRightRange:position]) {
         tileMatrix[(NSInteger)position.x * 4 + (NSInteger)position.y] = tile;
     }
+    
 }
 
 -(void)removeTileAtCoordinates:(CGPoint)position {
-    if ((NSInteger)position.x * 4 + (NSInteger)position.y < tileMatrix.count) {
+    if ([NRTileMatrix coordinatesInRightRange:position]) {
         tileMatrix[(NSInteger)position.x * 4 + (NSInteger)position.y] = [NSNull null];
     }
 }
@@ -67,6 +73,23 @@
         }
     }
     return CGPointMake(-1.0, -1.0);;
+}
+
+-(void)moveTile:(NRTile*)tile from:(CGPoint)oldPosition to:(CGPoint)newPosition {
+    if ([NRTileMatrix coordinatesInRightRange:newPosition]) {
+        if (tile == [self tileAtCoordinates:oldPosition]) {
+            [self insertTile:tile atCoordinates:newPosition];
+            [self removeTileAtCoordinates:oldPosition];
+        }
+    }
+}
+
++(BOOL)coordinatesInRightRange:(CGPoint)coordinates {
+    return
+        coordinates.x <= 3.0 &&
+        coordinates.x >= 0 &&
+        coordinates.y <= 3.0 &&
+        coordinates.y >= 0;
 }
 
 @end

@@ -49,6 +49,27 @@
         NSLog(@"Error: %@", error.localizedDescription);
     }
 }
+
++(NSString*)soundNameOfType:(Soundtype)type {
+    
+    switch (type) {
+        case kFailure:
+            return @"138490__randomationpictures__powerdown-2.wav";
+            break;
+        case kSuccess:
+            return @"171671__fins__success-1.wav";
+            break;
+        case kSwipe:
+            return @"73601__willc2-45220__swoop-thick-01.wav";
+            break;
+        case kPop:
+            return @"47498__carlsablowedwards__mouthpop-02.wav";
+            break;
+        default:
+            break;
+    }
+}
+
 -(void)playBackgroundSound {
     
     // Play some lovely background music

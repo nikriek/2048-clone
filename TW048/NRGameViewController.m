@@ -30,6 +30,7 @@
     soundPlayer = [SoundPlayer new];
     [soundPlayer playBackgroundSound];
     
+
     //Make round corners
     self.scoreBackgroundView.layer.cornerRadius = 4.0;
     self.scoreBackgroundView.layer.masksToBounds = YES;
@@ -39,20 +40,21 @@
     self.gamepadView.layer.masksToBounds = YES;
     
     [self prepareGame];
+
 }
 
 -(void)prepareGame {
+
     self.scoreLabel.text = @"0";
-    
+
     // Configure the view.
     SKView * skView = (SKView *)self.gamepadView;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
-    
     //make property weak to use it in blocks
     __weak typeof(self) weakSelf = self;
-    
+
     // Create and configure the scene.
     scene = [NRGameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
@@ -65,7 +67,7 @@
         //[soundPlayer stopBackgroundSound];
         [weakSelf showPopUpWithScore:score andSuccess:success];
     }];
-    
+
     // Present the scene.
     [skView presentScene:scene];
 }
@@ -90,7 +92,12 @@
         viewController.score = score;
         if (success) {
             viewController.statusTextLabel.text = @"You win!";
+            [scene runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSuccess]
+                                        waitForCompletion:NO]];
         } else {
+            viewController.statusTextLabel.text = @"You win!";
+            [scene runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kFailure]
+                                        waitForCompletion:NO]];
             viewController.statusTextLabel.text = @"Game over!";
         }
         viewController.scoreTextLabel.text = [NSString stringWithFormat:@"You scored %i points",(int)score];

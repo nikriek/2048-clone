@@ -21,4 +21,7 @@
 
 -(CGPoint)coordinatesOfTile:(NRTile*)tile;
 
+-(void)moveTile:(NRTile*)tile from:(CGPoint)oldPosition to:(CGPoint)newPosition;
+
++(BOOL)coordinatesInRightRange:(CGPoint)coordinates;
 @end
