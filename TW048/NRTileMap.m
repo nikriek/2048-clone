@@ -26,7 +26,7 @@
     return self;
 }
 
--(void)newTileAtRandomFreePosition {
+-(void)setNewTileAtRandomFreePosition {
     NSMutableArray *freePositions = [NSMutableArray new];
     for (int i = 0; i < tileMatrix.matrixArray.count; i++) {
         if ([tileMatrix.matrixArray objectAtIndex:i] == [NSNull null]) {
@@ -71,7 +71,7 @@
 -(void)performedSwipeGestureInDirection:(Direction)direction {
     [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
     
-    [self newTileAtRandomFreePosition];
+    [self setNewTileAtRandomFreePosition];
     
     //finishedGameBlock(NO,2048);
     /*

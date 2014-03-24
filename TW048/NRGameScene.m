@@ -25,11 +25,14 @@
     
         // Represents an actual tile map
         self.mapTiles = [NRTileMap node];
-        [self.mapTiles newTileAtRandomFreePosition];
         [self addChild:self.mapTiles];
         
     }
     return self;
+}
+
+-(void)didMoveToView:(SKView *)view {
+    [self.mapTiles setNewTileAtRandomFreePosition];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
