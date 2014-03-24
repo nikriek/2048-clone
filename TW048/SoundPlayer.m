@@ -60,7 +60,7 @@
             return @"171671__fins__success-1.wav";
             break;
         case kSwipe:
-            return @"73601__willc2-45220__swoop-thick-01.aif";
+            return @"219005__yap-audio-production__weaponswipe03.mp3";
             break;
         case kPop:
             return @"47498__carlsablowedwards__mouthpop-02.wav";

@@ -11,6 +11,9 @@
 
 @interface NRTileMatrix : NSObject
 
+@property (nonatomic,retain) NSMutableArray *matrixArray;
+
+
 -(NRTile*)tileAtCoordinates:(CGPoint)position;
 
 -(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)position;

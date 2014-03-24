@@ -25,7 +25,7 @@
     
         // Represents an actual tile map
         self.mapTiles = [NRTileMap node];
-        [self.mapTiles setNewTileAtRandomPosition];
+        [self.mapTiles newTileAtRandomFreePosition];
         [self addChild:self.mapTiles];
         
     }

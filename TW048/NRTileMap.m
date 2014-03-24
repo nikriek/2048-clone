@@ -11,9 +11,9 @@
 #import "NRTileMatrix.h"
 #import "SoundPlayer.h"
 
-//@implementation NRTileMap {
-//    NRTileMatrix *tileMatrix;
-//}
+@implementation NRTileMap {
+    NRTileMatrix *tileMatrix;
+}
 
 @synthesize finishedGameBlock;
 
@@ -21,45 +21,44 @@
 {
     self = [super init];
     if (self) {
-//        tileMatrix = [NRTileMatrix new];
+       tileMatrix = [NRTileMatrix new];
     }
     return self;
 }
 
--(void)setNewTileAtRandomPosition {
-    
-    srand (time(NULL));
-    
-    //Determine Random Coordinates
-    CGFloat randXCoordinate;
-    CGFloat randYCoordinate;
-    do {
-        randXCoordinate = 2;
-        randYCoordinate = 2;
-//        randXCoordinate = (CGFloat)(rand() %  4);
-//        randYCoordinate = (CGFloat)(rand() %  4);
-    
-    } while ([tileMatrix tileAtCoordinates:CGPointMake(randXCoordinate, randYCoordinate)] != nil);
-    NRTile *test = [tileMatrix tileAtCoordinates:CGPointMake(randXCoordinate, randYCoordinate)];
-    
-    //Determine whether "2" or "4" is created
-    NSInteger randValue;
-    BOOL probability = rand() % 10;
-    if (probability < 9)
-        randValue = 2;
-    else
-        randValue = 4;
-    
-    //Create new random Tile with random Coordinates and Value
-    CGPoint position = [self positionForTileWithCoordinates:CGPointMake(randXCoordinate, randYCoordinate)];
-    NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
-    [tile setCurrentValue:randValue];
-    [tileMatrix insertTile:tile atCoordinates:CGPointMake(randXCoordinate, randYCoordinate)];
-    [self addChild:tile];
+-(void)newTileAtRandomFreePosition {
+    NSMutableArray *freePositions = [NSMutableArray new];
+    for (int i = 0; i < tileMatrix.matrixArray.count; i++) {
+        if ([tileMatrix.matrixArray objectAtIndex:i] == [NSNull null]) {
+            [freePositions addObject:[NSNumber numberWithInt:i]];
+        }
+    }
+    int randomIndex = arc4random() % freePositions.count;
+    if (freePositions.count != 0) {
+        NSNumber *randomIndexNumber = [freePositions objectAtIndex:randomIndex];
+        CGFloat yCoordinate = (CGFloat)([randomIndexNumber integerValue] % 4);
+        CGFloat xCoordinate = ((CGFloat)[randomIndexNumber integerValue] - yCoordinate) / 4.0;
+        CGPoint coordinates = CGPointMake(xCoordinate, yCoordinate);
+        CGPoint position = [self positionForTileWithCoordinates:coordinates];
+        NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
+        
+        // Generate Random Value
+        NSInteger currentValue;
+        int randomValueProability = arc4random() % 10;
+        if (!randomValueProability) {
+            currentValue = 4;
+        } else {
+            currentValue = 2;
+        }
+        
+        [tile setCurrentValue:currentValue];
+        [tileMatrix insertTile:tile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
+        [self addChild:tile];
+    }
 }
 
 -(void)moveTile:(NRTile*)tile toPosition:(CGPoint)newPosition {
-    CGPoint oldPosition = [self.tileMatrix coordinatesOfTile:tile];
+    CGPoint oldPosition = [tileMatrix coordinatesOfTile:tile];
     if (oldPosition.x != -1.0 && [NRTileMatrix coordinatesInRightRange:newPosition]) {
         [tileMatrix moveTile:tile from:oldPosition to:newPosition];
         SKAction *moveAction;
@@ -70,11 +69,11 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
-    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
-    for (NRTile *tile in self.children) {
-        [self moveTile:tile toPosition:CGPointMake(0.0, 3.0)];
-    }
-    finishedGameBlock(NO,2048);
+    //[self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
+    
+    [self newTileAtRandomFreePosition];
+    
+    //finishedGameBlock(NO,2048);
     /*
     switch (direction) {
         case kDirectionUp:
@@ -118,7 +117,6 @@
             break;
     }
      */
-    [self setNewTileAtRandomPosition];
 }
 
 @end

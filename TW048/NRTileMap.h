@@ -15,7 +15,7 @@ typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
 
 @interface NRTileMap : NRBackgroundMap
 
--(void)setNewTileAtRandomPosition;
+-(void)newTileAtRandomFreePosition;
 
 -(void)performedSwipeGestureInDirection:(Direction)direction;
 
