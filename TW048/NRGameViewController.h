@@ -28,4 +28,5 @@
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender;
 
+-(void)prepareGame;
 @end

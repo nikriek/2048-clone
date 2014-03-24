@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+TargetViewController.h"
+#import "NRGameViewController.h"
 
 @interface NRGameOverSheetViewController : UIViewController
 

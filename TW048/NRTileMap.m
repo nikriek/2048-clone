@@ -15,6 +15,8 @@
     NRTileMatrix *tileMatrix;
 }
 
+@synthesize finishedGameBlock;
+
 - (instancetype)init
 {
     self = [super init];
@@ -62,6 +64,7 @@
     for (NRTile *tile in self.children) {
         [self moveTile:tile toPosition:CGPointMake(0.0, 3.0)];
     }
+    finishedGameBlock(NO,2048);
     /*
     switch (direction) {
         case kDirectionUp:

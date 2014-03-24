@@ -32,20 +32,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 - (IBAction)pushedRestart:(UIButton *)sender {
     MZFormSheetController *parent = (MZFormSheetController*)[self mz_parentTargetViewController];
     [parent mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-        // do sth
+
     }];
+        
 }
+
 
 - (IBAction)pushedTweet:(UIButton *)sender {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048",(int)self.score]];
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048-ios-game",(int)self.score]];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
 }
@@ -53,8 +54,7 @@
 - (IBAction)pushedFacebook:(UIButton *)sender {
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-        [controller setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048",(int)self.score]];
+        [controller setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048-ios-game",(int)self.score]];
         [self presentViewController:controller animated:YES completion:Nil];
     }
 }
