@@ -3,6 +3,8 @@
 
 This is an open source clone of the famous 2048 game ([git.io/2048](http://git.io/2048)) for iOS devices. We made it using the newest SpriteKit library on iOS 7.
 
+**Note:** The development is not yet finished… Anyway, feel free to view through the code ;)
+
 ## Contributers
 * Niklas Riekenbrauck ([@nikriek](http://twitter.com/nikriek))
 * Georg Zänker ([@GeorgZaenker](http://twitter.com/GeorgZaenker))
