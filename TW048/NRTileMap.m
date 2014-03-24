@@ -69,7 +69,7 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
-    //[self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
+    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
     
     [self newTileAtRandomFreePosition];
     

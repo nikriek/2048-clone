@@ -32,10 +32,8 @@
     if ([NRTileMatrix coordinatesInRightRange:position]) {
         id obj = matrixArray[(NSInteger)position.x * 4 + (NSInteger)position.y];
         if ([obj isMemberOfClass:[NRTile class]]) {
-            id test = obj;
             return (NRTile*)obj;
         } else {
-            id test = nil;
             return nil;
         }
     } else {
