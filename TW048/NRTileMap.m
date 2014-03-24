@@ -45,7 +45,7 @@
         // Generate Random Value
         NSInteger currentValue;
         int randomValueProability = arc4random() % 10;
-        if (!randomValueProability) {
+        if (randomValueProability == 0) {
             currentValue = 4;
         } else {
             currentValue = 2;
@@ -69,7 +69,7 @@
 }
 
 -(void)performedSwipeGestureInDirection:(Direction)direction {
-    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
+    //[self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
     
     [self setNewTileAtRandomFreePosition];
     
