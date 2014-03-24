@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="An0-wz-vyl">
-                                <rect key="frame" x="20" y="357" width="280" height="30"/>
+                                <rect key="frame" x="20" y="389" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Settings">
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-Dr-R47">
-                                <rect key="frame" x="20" y="395" width="280" height="30"/>
+                                <rect key="frame" x="20" y="427" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="About">
@@ -51,6 +51,15 @@
                                 <connections>
                                     <segue destination="XBo-b5-qUm" kind="push" id="eGp-KS-nWq"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ju-jL-2hL">
+                                <rect key="frame" x="20" y="357" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Rules">
+                                    <color key="titleColor" red="0.46666666670000001" green="0.43137254899999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2048" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHU-FS-O60">
                                 <rect key="frame" x="20" y="142" width="280" height="52"/>
@@ -73,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iwh-ie-V3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="-119"/>
+            <point key="canvasLocation" x="722" y="-128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EK9-fV-tpE">
@@ -200,7 +209,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1287" y="-134"/>
+            <point key="canvasLocation" x="1223" y="-128"/>
         </scene>
         <!--Table View Controller - About-->
         <scene sceneID="3rs-0q-Xd0">
@@ -298,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2d-um-eWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="628"/>
+            <point key="canvasLocation" x="722" y="575"/>
         </scene>
         <!--Game Over Sheet View Controller-->
         <scene sceneID="JDg-hI-vt1">
@@ -380,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUb-dU-1nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="1334"/>
+            <point key="canvasLocation" x="1659" y="67"/>
         </scene>
         <!--Table View Controller - Settings-->
         <scene sceneID="Lta-xj-xsU">
@@ -429,7 +438,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlE-Xn-ZpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="515"/>
+            <point key="canvasLocation" x="1223" y="575"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -11,9 +11,9 @@
 #import "NRTileMatrix.h"
 #import "SoundPlayer.h"
 
-@implementation NRTileMap {
-    NRTileMatrix *tileMatrix;
-}
+//@implementation NRTileMap {
+//    NRTileMatrix *tileMatrix;
+//}
 
 @synthesize finishedGameBlock;
 
@@ -21,35 +21,45 @@
 {
     self = [super init];
     if (self) {
-        tileMatrix = [NRTileMatrix new];
+//        tileMatrix = [NRTileMatrix new];
     }
     return self;
 }
 
 -(void)setNewTileAtRandomPosition {
-    for (int x = 0; x < 4; x++) {
-        BOOL shouldBreak = NO;
-        for (int y = 0; y < 4; y++) {
-            CGFloat xCoordinate = (CGFloat)x;
-            CGFloat yCoordinate = (CGFloat)y;
-            CGPoint position = [self positionForTileWithCoordinates:CGPointMake(xCoordinate, yCoordinate)];
-            if ([tileMatrix tileAtCoordinates:CGPointMake(xCoordinate, yCoordinate)] == nil) {
-                NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
-                [tile setCurrentValue:2];
-                [tileMatrix insertTile:tile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
-                [self addChild:tile];
-                shouldBreak = YES;
-                break;
-            }
-        }
-        if (shouldBreak == YES) {
-            break;
-        }
-    }
+    
+    srand (time(NULL));
+    
+    //Determine Random Coordinates
+    CGFloat randXCoordinate;
+    CGFloat randYCoordinate;
+    do {
+        randXCoordinate = 2;
+        randYCoordinate = 2;
+//        randXCoordinate = (CGFloat)(rand() %  4);
+//        randYCoordinate = (CGFloat)(rand() %  4);
+    
+    } while ([tileMatrix tileAtCoordinates:CGPointMake(randXCoordinate, randYCoordinate)] != nil);
+    NRTile *test = [tileMatrix tileAtCoordinates:CGPointMake(randXCoordinate, randYCoordinate)];
+    
+    //Determine whether "2" or "4" is created
+    NSInteger randValue;
+    BOOL probability = rand() % 10;
+    if (probability < 9)
+        randValue = 2;
+    else
+        randValue = 4;
+    
+    //Create new random Tile with random Coordinates and Value
+    CGPoint position = [self positionForTileWithCoordinates:CGPointMake(randXCoordinate, randYCoordinate)];
+    NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
+    [tile setCurrentValue:randValue];
+    [tileMatrix insertTile:tile atCoordinates:CGPointMake(randXCoordinate, randYCoordinate)];
+    [self addChild:tile];
 }
 
 -(void)moveTile:(NRTile*)tile toPosition:(CGPoint)newPosition {
-    CGPoint oldPosition = [tileMatrix coordinatesOfTile:tile];
+    CGPoint oldPosition = [self.tileMatrix coordinatesOfTile:tile];
     if (oldPosition.x != -1.0 && [NRTileMatrix coordinatesInRightRange:newPosition]) {
         [tileMatrix moveTile:tile from:oldPosition to:newPosition];
         SKAction *moveAction;
@@ -107,7 +117,8 @@
         default:
             break;
     }
-    [self setNewTileAtRandomPosition];*/
+     */
+    [self setNewTileAtRandomPosition];
 }
 
 @end
