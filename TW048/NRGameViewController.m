@@ -117,15 +117,11 @@
     
     //[self showPopUpWithScore:100 andSuccess:YES];
     
-    if (sender == self.upSwipeGestureRecognizer) {
-         [scene.mapTiles performedSwipeGestureInDirection:kDirectionUp];
-    } else if (sender == self.downSwipeGestureRecognizer) {
-        [scene.mapTiles performedSwipeGestureInDirection:kDirectionDown];
-    } else if (sender == self.leftSwipeGestureRecognizer) {
-        [scene.mapTiles performedSwipeGestureInDirection:kDirectionLeft];
-    } else if (sender == self.rightSwipeGestureRecognizer) {
-        [scene.mapTiles performedSwipeGestureInDirection:kDirectionRight];
-    }
+    for (UISwipeGestureRecognizer *recognizer in self.swipeGestureRecognizerCollection)
+        if (sender.direction == recognizer.direction)
+            [scene.mapTiles performedSwipeGestureInDirection:sender.direction];
+    
+
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

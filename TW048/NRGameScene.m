@@ -19,9 +19,9 @@
         self.backgroundColor = UIColorFromRGB(0xbbada0);
         
         // Represents the background
-        NRBackgroundMap *map = [NRBackgroundMap node];
-        [map generate];
-        [self addChild:map];
+        NRBackgroundMap *backgroundMap = [NRBackgroundMap node];
+        [backgroundMap generate];
+        [self addChild:backgroundMap];
     
         // Represents an actual tile map
         self.mapTiles = [NRTileMap node];
@@ -32,6 +32,7 @@
 }
 
 -(void)didMoveToView:(SKView *)view {
+    [self.mapTiles setNewTileAtRandomFreePosition];
     [self.mapTiles setNewTileAtRandomFreePosition];
 }
 

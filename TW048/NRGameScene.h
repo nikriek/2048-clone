@@ -7,7 +7,6 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "SKAction+Direction.h"
 #import "NRTileMap.h"
 
 @interface NRGameScene : SKScene

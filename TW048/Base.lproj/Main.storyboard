@@ -178,34 +178,34 @@
                     <connections>
                         <outlet property="bestBackgroundView" destination="GSN-L6-XpN" id="3ht-Tz-J9U"/>
                         <outlet property="bestLabel" destination="P5H-4d-wsm" id="JwL-R4-RDY"/>
-                        <outlet property="downSwipeGestureRecognizer" destination="bFg-mY-HkI" id="fSb-x5-db3"/>
                         <outlet property="gamepadView" destination="5KH-Ap-PHF" id="j6c-UF-ihL"/>
-                        <outlet property="leftSwipeGestureRecognizer" destination="zIb-Nf-Psd" id="cYi-ak-GlU"/>
-                        <outlet property="rightSwipeGestureRecognizer" destination="7We-tg-T3h" id="gF4-W0-wS1"/>
                         <outlet property="scoreBackgroundView" destination="7ss-L2-Q8P" id="4He-2i-0nT"/>
                         <outlet property="scoreLabel" destination="Lze-Mn-36E" id="tYl-qd-G4r"/>
-                        <outlet property="upSwipeGestureRecognizer" destination="KKE-cr-Hfw" id="29m-xY-dcP"/>
+                        <outletCollection property="swipeGestureRecognizerCollection" destination="7We-tg-T3h" id="QcW-kr-F5x"/>
+                        <outletCollection property="swipeGestureRecognizerCollection" destination="bFg-mY-HkI" id="ZB8-Sy-UKe"/>
+                        <outletCollection property="swipeGestureRecognizerCollection" destination="KKE-cr-Hfw" id="czC-5h-8aP"/>
+                        <outletCollection property="swipeGestureRecognizerCollection" destination="zIb-Nf-Psd" id="2td-vP-iHP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="KKE-cr-Hfw">
+                <swipeGestureRecognizer direction="right" id="7We-tg-T3h">
                     <connections>
-                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="J0B-ML-yng"/>
+                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="UDD-KF-OKc"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="down" id="bFg-mY-HkI">
                     <connections>
-                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="kx0-VC-jTm"/>
+                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="TMF-Rt-arY"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="KKE-cr-Hfw">
+                    <connections>
+                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="h2b-qa-P5e"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="zIb-Nf-Psd">
                     <connections>
-                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="F9t-uS-Rdv"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="7We-tg-T3h">
-                    <connections>
-                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="9L8-ys-kQp"/>
+                        <action selector="madeSwipeGesture:" destination="LVB-YS-i5n" id="K2i-Ks-UaQ"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

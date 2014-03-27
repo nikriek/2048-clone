@@ -20,11 +20,9 @@
 
 @property (weak, nonatomic) IBOutlet SKView *gamepadView;
 
-//Swipe Recognizer
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *upSwipeGestureRecognizer;
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *downSwipeGestureRecognizer;
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
+//Swipe Recognizer with Outlet Collection
+@property (strong, nonatomic) IBOutletCollection(UISwipeGestureRecognizer) NSArray *swipeGestureRecognizerCollection;
+
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender;
 

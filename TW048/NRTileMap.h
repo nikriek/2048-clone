@@ -8,7 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "NRBackgroundMap.h"
-#import "SKAction+Direction.h"
 
 typedef void (^NewScoreBlock)(NSInteger newScore, NSInteger offset);
 typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
@@ -17,7 +16,7 @@ typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
 
 -(void)setNewTileAtRandomFreePosition;
 
--(void)performedSwipeGestureInDirection:(Direction)direction;
+-(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)direction;
 
 @property (nonatomic, copy) NewScoreBlock newScoreBlock;
 @property (nonatomic, copy) FinishedGameBlock finishedGameBlock;

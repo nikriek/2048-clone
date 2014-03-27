@@ -68,55 +68,56 @@
     }
 }
 
--(void)performedSwipeGestureInDirection:(Direction)direction {
+-(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)direction {
     //[self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
     
-    [self setNewTileAtRandomFreePosition];
     
     //finishedGameBlock(NO,2048);
-    /*
-    switch (direction) {
-        case kDirectionUp:
-            for (int y = 2; y >= 0; y--) {
-                for (int x = 0; x < 4; x++) {
-                    NRTile *tile= [tileMatrix tileAtCoordinates:CGPointMake(x, y)];
-                    if (tile != nil) {
-                        for (int i = 3; i >= 0; i--) {
-                            NRTile *otherTile = [tileMatrix tileAtCoordinates:CGPointMake(x, i)];
-                            if (ot) {
-                                <#statements#>
-                            }
-                        }
-                    }
-                }
-            }
-            break;
-        case kDirectionDown:
-            for (int y = 1; y < 4; y++) {
-                for (int x = 0; x < 4; x++) {
-                    
-                }
-            }
-            break;
-        case kDirectionLeft:
-            for (int x = 1; x < 4; x++) {
-                for (int y = 0; y < 4; y++) {
-                    
-                }
-            }
-            break;
-        case kDirectionRight:
-            for (int x = 2; x >= 0 ; x--) {
-                for (int y = 0; y < 4; y++) {
-                    
-                }
-            }
-            break;
-            
-        default:
-            break;
-    }
-     */
+    
+//    switch (direction) {
+//        case kDirectionUp:
+//            for (int y = 2; y >= 0; y--) {
+//                for (int x = 0; x < 4; x++) {
+//                    NRTile *tile= [tileMatrix tileAtCoordinates:CGPointMake(x, y)];
+//                    if (tile != nil) {
+//                        for (int i = 3; i >= 0; i--) {
+//                            NRTile *otherTile = [tileMatrix tileAtCoordinates:CGPointMake(x, i)];
+//                            if (ot) {
+//                                <#statements#>
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            break;
+//        case kDirectionDown:
+//            for (int y = 1; y < 4; y++) {
+//                for (int x = 0; x < 4; x++) {
+//                    
+//                }
+//            }
+//            break;
+//        case kDirectionLeft:
+//            for (int x = 1; x < 4; x++) {
+//                for (int y = 0; y < 4; y++) {
+//                    
+//                }
+//            }
+//            break;
+//        case kDirectionRight:
+//            for (int x = 2; x >= 0 ; x--) {
+//                for (int y = 0; y < 4; y++) {
+//                    
+//                }
+//            }
+//            break;
+//            
+//        default:
+//            break;
+//    }
+    
+    [self setNewTileAtRandomFreePosition];
+
 }
 
 @end
