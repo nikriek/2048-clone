@@ -53,7 +53,6 @@
         CGFloat xCoordinate = ((CGFloat)[randomIndexNumber integerValue] - yCoordinate) / 4.0;
         CGPoint coordinates = CGPointMake(xCoordinate, yCoordinate);
         CGPoint position = [self positionForTileWithCoordinates:coordinates];
-        NRTile *tile = [[NRTile alloc] initFrontWithPosition:position];
         
         // Generate Random Value
         NSInteger currentValue;
@@ -64,16 +63,57 @@
             currentValue = 2;
         }
         
-        [tile setValue:currentValue];
-        [tileMatrix insertTile:tile atPosition:CGPointMake(xCoordinate, yCoordinate)];
-        [self addChild:tile];
+        NRTile *randomTile = [[NRTile alloc] initFrontWithPosition:position];
+        [randomTile setValue:currentValue];
+        [tileMatrix insertTile:randomTile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
+        [self addChild:randomTile];
+        
     }
+}
+
+-(void)createTwoTestTilesAtPositions:(CGPoint)position1 and:(CGPoint)position2 {
+    
+    NRTile *tile1 = [[NRTile alloc] initFrontWithPosition:[self positionForTileWithCoordinates:position1]];
+    [tile1 setValue:tile1.value];
+    [tileMatrix insertTile:tile1 atCoordinates:position1];
+    [self addChild:tile1];
+
+    
+    
+    
+    NRTile *tile2 = [[NRTile alloc] initFrontWithPosition:[self positionForTileWithCoordinates:position2]];
+    [tile2 setValue:tile2.value];
+    [tileMatrix insertTile:tile1 atCoordinates:position2];
+    [self addChild:tile2];
+    
+    
 }
 
 -(void)moveTile:(NRTile*)tile oneFieldIntoDirection:(CGVector)direction {
     
-    CGPoint oldPosition = [tileMatrix positionOfTile:tile];
-    if (oldPosition.x != -1.0 && [NRTileMatrix positionInRightRange:[self shiftPoint:oldPosition oneUnitWithDirection:direction]]) {
+    
+    
+    CGPoint oldPosition = [tileMatrix coordinatesOfTile:tile];
+    CGPoint newPosition = [self shiftPoint:newPosition oneUnitWithDirection:direction];
+    
+    if ([tileMatrix tileAtCoordinates:newPosition] != nil && [tileMatrix tileAtCoordinates:newPosition].value == tile.value) {
+        int doubledValue = tile.value * 2;
+        
+        [[tileMatrix tileAtCoordinates:newPosition] removeFromParent];
+        [tileMatrix removeTileAtCoordinates:newPosition];
+        [[tileMatrix tileAtCoordinates:oldPosition] removeFromParent];
+        [tileMatrix removeTileAtCoordinates:oldPosition];
+        
+        NRTile *combinedTile = [[NRTile alloc] initFrontWithPosition:newPosition];
+        [combinedTile setValue:doubledValue];
+        [tileMatrix insertTile:combinedTile atCoordinates:newPosition];
+        [self addChild:combinedTile];
+    }
+    
+    
+    
+    
+    if (oldPosition.x != -1.0 && [NRTileMatrix coordinatesInRightRange:[self shiftPoint:oldPosition oneUnitWithDirection:direction]]) {
         [tileMatrix moveTile:tile from:oldPosition to:[self shiftPoint:oldPosition oneUnitWithDirection:direction]];
         SKAction *moveAction;
         CGSize delta = [self deltaForCoordinates:oldPosition andCoordinates:[self shiftPoint:oldPosition oneUnitWithDirection:direction]];
@@ -81,20 +121,29 @@
         [tile runAction: moveAction];
     }
     
+    
+    
+    
+    
+    
+    
+    
 }
 -(BOOL)tile:(NRTile*)tile isMovableOneFieldIntoDirection:(CGVector)direction {
     
-    CGPoint positionTile = [tileMatrix positionOfTile:tile];
-    CGPoint positionFieldInQuestion = [self shiftPoint:positionTile oneUnitWithDirection:direction];
+    CGPoint positionTile = [tileMatrix coordinatesOfTile:tile];
+    CGPoint newPosition = [self shiftPoint:positionTile oneUnitWithDirection:direction];
     
     
-    if (        [NRTileMatrix positionInRightRange:positionFieldInQuestion]
-        &&      ([tileMatrix tileAtPosition:positionFieldInQuestion]          == nil
-        /*||       [tileMatrix tileAtPosition:positionFieldInQuestion].value   == tile.value*/))
+    if (        [NRTileMatrix coordinatesInRightRange:newPosition]
+        &&      ([tileMatrix tileAtCoordinates:newPosition]        == nil
+        ||       [tileMatrix tileAtCoordinates:newPosition].value  == tile.value))
     { return YES;}
     
     return NO;
 }
+
+
 
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection {
    
@@ -102,9 +151,7 @@
     [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
 
 //    finishedGameBlock(NO,2048);
-//    BOOL shouldSetRandomTileAtTheEndOfTurn = NO;
-//    if (shouldSetRandomTileAtTheEndOfTurn)
-//    [self setNewTileAtRandomFreePosition];
+    BOOL shouldSetRandomTileAtTheEndOfTurn = NO;
 
 
     
@@ -124,11 +171,13 @@
     runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:rectangularDirection];
     
     //Start loop
-    while ([NRTileMatrix positionInRightRange:runningPointer]) {
-        while ([NRTileMatrix positionInRightRange:runningPointer]) {
+    while ([NRTileMatrix coordinatesInRightRange:runningPointer]) {
+        while ([NRTileMatrix coordinatesInRightRange:runningPointer]) {
             //Put Code in here ***************************************
             {
-                currentTile = [tileMatrix tileAtPosition:runningPointer];
+                currentTile = [tileMatrix tileAtCoordinates:runningPointer];
+                if ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection])
+                    shouldSetRandomTileAtTheEndOfTurn = YES;
                 while ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection]) {
                     [self moveTile:currentTile oneFieldIntoDirection:vDirection];
                 }
@@ -141,6 +190,8 @@
         
         runningPointer = [self shiftPoint:runningPointer oneUnitWithDirection:rectangularDirection];
     } //End loop
+    
+    [self setNewTileAtRandomFreePosition];
     
 }
 

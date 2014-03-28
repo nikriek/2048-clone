@@ -18,6 +18,8 @@ typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
 @interface NRTileMap : NRBackgroundMap
 
 -(void)setNewTileAtRandomFreePosition;
+-(void)createTwoTestTilesAtPositions:(CGPoint)position1 and:(CGPoint)position2;
+
 
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection;
 

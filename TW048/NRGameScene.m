@@ -32,8 +32,9 @@
 }
 
 -(void)didMoveToView:(SKView *)view {
-    [self.mapTiles setNewTileAtRandomFreePosition];
-    [self.mapTiles setNewTileAtRandomFreePosition];
+    [self.mapTiles createTwoTestTilesAtPositions:CGPointMake(0, 0) and:CGPointMake(1, 2)];
+//    [self.mapTiles setNewTileAtRandomFreePosition];
+//    [self.mapTiles setNewTileAtRandomFreePosition];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
