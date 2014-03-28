@@ -51,6 +51,8 @@
     SKView * skView = (SKView *)self.gamepadView;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
+    skView.showsPhysics = YES;
+    skView.showsDrawCount = YES;
     
     //make property weak to use it in blocks
     __weak typeof(self) weakSelf = self;
@@ -120,8 +122,6 @@
     for (UISwipeGestureRecognizer *recognizer in self.swipeGestureRecognizerCollection)
         if (sender.direction == recognizer.direction)
             [scene.mapTiles performedSwipeGestureInDirection:sender.direction];
-    
-
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

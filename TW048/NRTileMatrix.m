@@ -27,9 +27,9 @@
 
 #pragma mark - Tile matrix related methods
 
--(NRTile*)tileAtCoordinates:(CGPoint)position {
+-(NRTile*)tileAtPosition:(CGPoint)position {
     
-    if ([NRTileMatrix coordinatesInRightRange:position]) {
+    if ([NRTileMatrix positionInRightRange:position]) {
         id obj = matrixArray[(NSInteger)position.x * 4 + (NSInteger)position.y];
         if ([obj isMemberOfClass:[NRTile class]]) {
             return (NRTile*)obj;
@@ -42,14 +42,15 @@
     
 }
 
--(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)position {
-    if ([NRTileMatrix coordinatesInRightRange:position]) {
+-(void)insertTile:(NRTile*)tile atPosition:(CGPoint)position {
+    if ([NRTileMatrix positionInRightRange:position]) {
         matrixArray[(NSInteger)position.x * 4 + (NSInteger)position.y] = tile;
     }    
 }
 
--(void)removeTileAtCoordinates:(CGPoint)position {
-    if ([NRTileMatrix coordinatesInRightRange:position]) {
+-(void)removeTileAtPosition:(CGPoint)position {
+    
+    if ([NRTileMatrix positionInRightRange:position]) {
         matrixArray[(NSInteger)position.x * 4 + (NSInteger)position.y] = [NSNull null];
     }
 }
@@ -64,7 +65,7 @@
     return count;
 }
 
--(CGPoint)coordinatesOfTile:(NRTile*)tile {
+-(CGPoint)positionOfTile:(NRTile*)tile {
     for (int i = 0; i < matrixArray.count;i++) {
         NRTile *iTile = matrixArray[i];
         if (iTile == tile) {
@@ -78,20 +79,20 @@
 
 
 -(void)moveTile:(NRTile*)tile from:(CGPoint)oldPosition to:(CGPoint)newPosition {
-    if ([NRTileMatrix coordinatesInRightRange:newPosition]) {
-        if (tile == [self tileAtCoordinates:oldPosition]) {
-            [self insertTile:tile atCoordinates:newPosition];
-            [self removeTileAtCoordinates:oldPosition];
+    if ([NRTileMatrix positionInRightRange:newPosition]) {
+        if (tile == [self tileAtPosition:oldPosition]) {
+            [self insertTile:tile atPosition:newPosition];
+            [self removeTileAtPosition:oldPosition];
         }
     }
 }
 
-+(BOOL)coordinatesInRightRange:(CGPoint)coordinates {
++(BOOL)positionInRightRange:(CGPoint)position {
     return
-        coordinates.x <= 3.0 &&
-        coordinates.x >= 0 &&
-        coordinates.y <= 3.0 &&
-        coordinates.y >= 0;
+        position.x <= 3.0 &&
+        position.x >= 0 &&
+        position.y <= 3.0 &&
+        position.y >= 0;
 }
 
 @end

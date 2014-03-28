@@ -11,7 +11,7 @@
 @implementation NRTile {
     SKLabelNode *label;
 }
-@synthesize currentValue = _currentValue;
+@synthesize value = _value;
 
 
 - (instancetype)initWithPosition:(CGPoint)position
@@ -34,7 +34,7 @@
 {
     self = [self initWithPosition:position];
     if (self) {
-        [self setCurrentValue: 2];
+        [self setValue: 2];
     }
     return self;
 }
@@ -43,16 +43,16 @@
 {
     self = [self initWithPosition:position];
     if (self) {
-        [self setCurrentValue: 0];
+        [self setValue: 0];
     }
     return self;
 }
 
--(void)setCurrentValue:(NSInteger)currentValue {
-    _currentValue = currentValue;
+-(void)setValue:(NSInteger)currentValue {
+    _value = currentValue;
     
     //Set background depending on value
-    switch (self.currentValue) {
+    switch (self.value) {
         case 0:
             self.strokeColor = self.fillColor = [UIColor colorWithRed:238.0/255.0 green:228.0/255.0 blue:218.0/255.0 alpha:0.35];
             break;

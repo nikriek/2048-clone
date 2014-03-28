@@ -10,7 +10,7 @@
 
 @interface NRTile : SKShapeNode
 
-@property (nonatomic) NSInteger currentValue;
+@property (nonatomic) NSInteger value;
 
 - (instancetype)initFrontWithPosition:(CGPoint)position;
 - (instancetype)initBackWithPosition:(CGPoint)position;

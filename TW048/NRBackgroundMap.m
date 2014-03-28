@@ -53,7 +53,7 @@
     } else {
         return CGSizeMake(0, 0);
     }
-}
 
+}
 
 @end
