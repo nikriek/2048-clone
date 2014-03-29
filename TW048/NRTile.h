@@ -12,8 +12,14 @@
 
 @property (nonatomic) NSInteger value;
 @property (nonatomic) CGPoint coordinates;
+@property (nonatomic) BOOL hasJustBeenCombined;
 
+#pragma mark Initialisation Methods
 - (instancetype)initFrontWithCoordinates:(CGPoint)coordinates;
 - (instancetype)initBackWithCoordinates:(CGPoint)coordinates;
+
+#pragma mark Convert logical units into graphical units
++ (CGPoint)positionForCoordinates:(CGPoint)coordinates;
++ (CGVector)distanceForVector:(CGVector)vector;
 
 @end

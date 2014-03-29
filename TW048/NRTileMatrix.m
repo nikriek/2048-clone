@@ -24,32 +24,7 @@
     return self;
 }
 
-#pragma mark - Tile matrix related methods
-
--(NRTile*)tileAtCoordinates:(CGPoint)coordinates {
-    
-    if ([NRTileMatrix coordinatesInRightRange:coordinates]) {
-        id obj = matrixArray[(NSInteger)coordinates.x * 4 + (NSInteger)coordinates.y];
-        if ([obj isMemberOfClass:[NRTile class]]) {
-            return (NRTile*)obj;
-        } else {
-            return nil;
-        }
-    } else {
-        return nil;
-    }
-    
-}
-
--(NSInteger)countOfTiles {
-    NSInteger count = 0;
-    for (id obj in matrixArray) {
-        if ([obj isMemberOfClass:[NRTile class]]) {
-            count++;
-        }
-    }
-    return count;
-}
+#pragma mark Insert, Remove and Move
 
 -(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)newCoordinates {
     matrixArray[(NSInteger)newCoordinates.x * 4 + (NSInteger)newCoordinates.y] = tile;
@@ -66,13 +41,41 @@
     [self removeTileAtCoordinates:oldCoordinates];
 }
 
-+(BOOL)coordinatesInRightRange:(CGPoint)coordinates {
-    return
-        coordinates.x <= 3.0 &&
-        coordinates.x >= 0 &&
-        coordinates.y <= 3.0 &&
-        coordinates.y >= 0;
+#pragma mark Array Related Methods
+
+-(NSInteger)countOfTiles {
+    NSInteger count = 0;
+    for (id obj in matrixArray) {
+        if ([obj isMemberOfClass:[NRTile class]]) {
+            count++;
+        }
+    }
+    return count;
 }
+-(NRTile*)tileAtCoordinates:(CGPoint)coordinates {
+    
+    id obj = matrixArray[(NSInteger)coordinates.x * 4 + (NSInteger)coordinates.y];
+    if ([obj isMemberOfClass:[NRTile class]]) {
+        return (NRTile*)obj;
+    } else {
+        return nil;
+    }
+    
+}
+
+#pragma mark Resets
+
+-(void)resetHasJustBeenCombinedTags {
+    NRTile *tempTile;
+    for (int i = 0; i < matrixArray.count; i++) {
+        if (matrixArray[i] != [NSNull null]) {
+            tempTile = matrixArray[i];
+            tempTile.hasJustBeenCombined = NO;
+            matrixArray[i] = tempTile;
+        }
+    }
+}
+
 -(CGPoint)shiftPoint:(CGPoint)point oneUnitWithDirection:(CGVector)direction {
     return CGPointMake(point.x + direction.dx, point.y + direction.dy);
 }

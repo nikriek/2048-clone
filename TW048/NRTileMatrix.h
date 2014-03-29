@@ -13,17 +13,17 @@
 
 @property (nonatomic,retain) NSMutableArray *matrixArray;
 
-
--(NRTile*)tileAtCoordinates:(CGPoint)coordinates;
-
+#pragma mark Insert, Remove and Move
 -(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)coordinates;
-
 -(void)removeTileAtCoordinates:(CGPoint)coordinates;
-
--(NSInteger)countOfTiles;
-
 -(void)moveTile:(NRTile*)tile to:(CGVector)direction;
 
-+(BOOL)coordinatesInRightRange:(CGPoint)coordinates;
+#pragma mark Array Related Methods
+-(NSInteger)countOfTiles;
+-(NRTile*)tileAtCoordinates:(CGPoint)coordinates;
+
+#pragma mark Resets
+-(void)resetHasJustBeenCombinedTags;
+//Possibly a reset matrix Array Method for later
 
 @end

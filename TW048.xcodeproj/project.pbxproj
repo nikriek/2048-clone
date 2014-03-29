@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5607BB9218E70E5F00E622D0 /* NRBackgroundMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607BB9118E70E5F00E622D0 /* NRBackgroundMap.m */; };
 		5659478218DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477518DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav */; };
 		5659478318DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477618DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav */; };
 		5659478418DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477718DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav */; };
@@ -66,8 +65,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5607BB9018E70E5F00E622D0 /* NRBackgroundMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRBackgroundMap.h; sourceTree = "<group>"; };
-		5607BB9118E70E5F00E622D0 /* NRBackgroundMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRBackgroundMap.m; sourceTree = "<group>"; };
 		5659477518DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "157846_darkmast49_fightscene (mp3cut.net).wav"; sourceTree = "<group>"; };
 		5659477618DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "138490__randomationpictures__powerdown-2.wav"; sourceTree = "<group>"; };
 		5659477718DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Computer Error-SoundBible.com-1655839472.wav"; sourceTree = "<group>"; };
@@ -363,8 +360,6 @@
 		A6D44D7A18DB564C004619FE /* Game Scene */ = {
 			isa = PBXGroup;
 			children = (
-				5607BB9018E70E5F00E622D0 /* NRBackgroundMap.h */,
-				5607BB9118E70E5F00E622D0 /* NRBackgroundMap.m */,
 				A6B284A018DB210F00E2654D /* NRGameScene.h */,
 				A6B284A118DB210F00E2654D /* NRGameScene.m */,
 				A6A4005D18DC76E800E11F35 /* NRTileMap.h */,
@@ -522,7 +517,6 @@
 			files = (
 				A6E5A3EF18DDFB990082410C /* MZFormSheetSegue.m in Sources */,
 				A6E5A3EC18DDFB990082410C /* MZFormSheetBackgroundWindow.m in Sources */,
-				5607BB9218E70E5F00E622D0 /* NRBackgroundMap.m in Sources */,
 				A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */,
 				A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */,
 				A6E5A3F118DDFB990082410C /* UIImage+Additional.m in Sources */,

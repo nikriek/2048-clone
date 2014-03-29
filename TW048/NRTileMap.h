@@ -17,9 +17,6 @@ typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
 @interface NRTileMap : SKNode
 
 -(void)setNewTileAtRandomFreePosition;
--(void)createTwoTestTilesAtCoordinates:(CGPoint)coordinates1 and:(CGPoint)coordinates2;
-
-
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection;
 
 @property (nonatomic, copy) NewScoreBlock newScoreBlock;

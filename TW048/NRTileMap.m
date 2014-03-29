@@ -38,6 +38,62 @@
     return self;
 }
 
+#pragma mark Making a turn
+
+-(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection {
+    
+    //Play Sound
+    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
+    
+    //    finishedGameBlock(NO,2048);
+    BOOL shouldSetRandomTileAtTheEndOfTurn = NO;
+    [tileMatrix resetHasJustBeenCombinedTags];
+    
+    
+    
+    
+    //Set up the Loop
+    NRTile *currentTile;
+    CGVector vDirection = [self createUnitVectorFromSwipeDirection:sDirection];
+    CGVector rectangularDirection = [self clockwiseDirectionOf:vDirection];
+    CGVector oppositeDirection = [self oppositeDirectionOf:vDirection];
+    
+    // a CGPoint pointing at the current position in the Matrix
+    CGPoint runningPointer = CGPointMake(0.0, 0.0);
+    // Set one ordinate (x or y) to the value the loop should start from
+    runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:oppositeDirection];
+    // Set the other ordinate (y or x).
+    // Because the direction is rectangular to the previous one, the second ordinate is definetely the counterpart of the first.
+    runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:rectangularDirection];
+    
+    //Start loop
+    while ([self coordinatesInRightRange:runningPointer]) {
+        while ([self coordinatesInRightRange:runningPointer]) {
+            //Put Code in here ***************************************
+            {
+                currentTile = [tileMatrix tileAtCoordinates:runningPointer];
+                if ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection] && currentTile != nil)
+                    shouldSetRandomTileAtTheEndOfTurn = YES;
+                while ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection] && currentTile != nil) {
+                    [self moveTile:currentTile oneFieldIntoDirection:vDirection];
+                }
+                
+            }
+            // *******************************************************
+            runningPointer = [self translatePoint:runningPointer intoDirection:oppositeDirection];
+        }
+        runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:oppositeDirection];
+        
+        runningPointer = [self translatePoint:runningPointer intoDirection:rectangularDirection];
+    } //End loop
+    
+    if (shouldSetRandomTileAtTheEndOfTurn)
+        [self setNewTileAtRandomFreePosition];
+    
+}
+
+#pragma mark Game Actions
+
 -(void)setNewTileAtRandomFreePosition {
     
     NSMutableArray *freePositions = [NSMutableArray new];
@@ -70,146 +126,48 @@
     }
 }
 
--(void)createTwoTestTilesAtCoordinates:(CGPoint)coordinates1 and:(CGPoint)coordinates2 {
-    
-    NRTile *tile1 = [[NRTile alloc] initFrontWithCoordinates:coordinates1];
-    [tile1 setValue:tile1.value];
-    [tileMatrix insertTile:tile1 atCoordinates:coordinates1];
-    [self addChild:tile1];
-
-    
-    
-    
-    NRTile *tile2 = [[NRTile alloc] initFrontWithCoordinates:coordinates2];
-    [tile2 setValue:tile2.value];
-    
-    [tileMatrix insertTile:tile2 atCoordinates:coordinates2];
-    
-    [self addChild:tile2];
-    NRTile *testTile = [tileMatrix tileAtCoordinates:coordinates2];
-    
-    
-}
-
--(void)moveTile:(NRTile*)tile oneFieldIntoDirection:(CGVector)direction {
-    
-    
+-(void)moveTile:(NRTile*)tile oneFieldIntoDirection:(CGVector)vDirection {
     
     CGPoint oldCoordinates = tile.coordinates;
-    CGPoint newCoordinates = [self shiftPoint:newCoordinates oneUnitWithDirection:direction];
+    CGPoint newCoordinates = [self translatePoint:oldCoordinates intoDirection:vDirection];
     
-//    if ([tileMatrix tileAtCoordinates:newCoordinates] != nil && [tileMatrix tileAtCoordinates:newCoordinates].value == tile.value) {
-//        int doubledValue = tile.value * 2;
-//        
-//        [[tileMatrix tileAtCoordinates:newCoordinates] removeFromParent];
-//        [tileMatrix removeTileAtCoordinates:newCoordinates];
-//        [[tileMatrix tileAtCoordinates:oldCoordinates] removeFromParent];
-//        [tileMatrix removeTileAtCoordinates:oldCoordinates];
-//        
-//        NRTile *combinedTile = [[NRTile alloc] initFrontWithPosition:[self positionForTileWithCoordinates:newCoordinates]];
-//        [combinedTile setValue:doubledValue];
-//        [tileMatrix insertTile:combinedTile atCoordinates:newCoordinates];
-//        [self addChild:combinedTile];
-//    }
-    
-    
-    
-    
-    if ([NRTileMatrix coordinatesInRightRange:[self shiftPoint:oldCoordinates oneUnitWithDirection:direction]]) {
-        [tileMatrix moveTile:tile to:direction];
-        SKAction *moveAction;
+    if (    [tileMatrix tileAtCoordinates:newCoordinates] != nil
+        &&  [tileMatrix tileAtCoordinates:newCoordinates].value == tile.value
+        &&  [self coordinatesInRightRange:[self translatePoint:oldCoordinates intoDirection:vDirection]])
+    {
+        int doubledValue = tile.value * 2;
         
-        CGVector distance = [self distanceForVector:direction];
-        moveAction = [SKAction moveByX:distance.dx y:distance.dy duration:0.1];
+        [[tileMatrix tileAtCoordinates:newCoordinates] removeFromParent];
+        [tileMatrix removeTileAtCoordinates:newCoordinates];
+        [[tileMatrix tileAtCoordinates:oldCoordinates] removeFromParent];
+        [tileMatrix removeTileAtCoordinates:oldCoordinates];
         
-        [tile runAction: moveAction];
+        NRTile *combinedTile = [[NRTile alloc] initFrontWithCoordinates:newCoordinates];
+        [combinedTile setValue:doubledValue];
+        [tileMatrix insertTile:combinedTile atCoordinates:newCoordinates];
+        [self addChild:combinedTile];
+    } else {
+        [tileMatrix moveTile:tile to:vDirection];
     }
     
     
-    
-    
-    
-    
-    
-    
+    // Run animation
+    CGVector distance = [NRTile distanceForVector:vDirection];
+    SKAction *moveAction = [SKAction moveByX:distance.dx y:distance.dy duration:0.1];
+    [tile runAction: moveAction];
 }
 -(BOOL)tile:(NRTile*)tile isMovableOneFieldIntoDirection:(CGVector)direction {
     
-    CGPoint newCoordinates = [self shiftPoint:tile.coordinates oneUnitWithDirection:direction];
+    CGPoint newCoordinates = [self translatePoint:tile.coordinates intoDirection:direction];
     
     
-    if (        [NRTileMatrix coordinatesInRightRange:newCoordinates]
+    if (        [self coordinatesInRightRange:newCoordinates]
         &&      ([tileMatrix tileAtCoordinates:newCoordinates]        == nil
-        /*||       [tileMatrix tileAtCoordinates:newCoordinates].value  == tile.value*/))
+        ||       ([tileMatrix tileAtCoordinates:newCoordinates].value  == tile.value
+        &&          [tileMatrix tileAtCoordinates:newCoordinates].hasJustBeenCombined == NO)))
     { return YES;}
     
     return NO;
-}
-
-
-
--(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection {
-   
-    //Play Sound
-//    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
-
-//    finishedGameBlock(NO,2048);
-    BOOL shouldSetRandomTileAtTheEndOfTurn = NO;
-
-
-    
-
-    
-    NRTile *currentTile;
-    CGVector vDirection = [self createVectorDirectionFromSwipeDirection:sDirection];
-    CGVector rectangularDirection = [self clockwiseDirectionOf:vDirection];
-    CGVector oppositeDirection = [self oppositeDirectionOf:vDirection];
-    
-    // a CGPoint pointing at the current position in the Matrix
-    CGPoint runningPointer = CGPointMake(0.0, 0.0);
-    // Set one ordinate (x or y) to the value the loop should start from
-    runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:oppositeDirection];
-    // Set the other ordinate (y or x).
-    // Because the direction is rectangular to the previous one, the second ordinate is definetely the counterpart of the first.
-    runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:rectangularDirection];
-    
-    //Start loop
-    while ([NRTileMatrix coordinatesInRightRange:runningPointer]) {
-        while ([NRTileMatrix coordinatesInRightRange:runningPointer]) {
-            //Put Code in here ***************************************
-            {
-                currentTile = [tileMatrix tileAtCoordinates:runningPointer];
-                CGPoint testCoordinates = currentTile.coordinates;
-                if ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection] && currentTile != nil)
-                    shouldSetRandomTileAtTheEndOfTurn = YES;
-                while ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection] && currentTile != nil) {
-                    bool testBool = [self tile:currentTile isMovableOneFieldIntoDirection:vDirection];
-                    [self moveTile:currentTile oneFieldIntoDirection:vDirection];
-                }
-                
-            }
-            // *******************************************************
-            runningPointer = [self shiftPoint:runningPointer oneUnitWithDirection:oppositeDirection];
-        }
-        runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:oppositeDirection];
-        
-        runningPointer = [self shiftPoint:runningPointer oneUnitWithDirection:rectangularDirection];
-    } //End loop
-    
-//    [self setNewTileAtRandomFreePosition];
-    
-}
-
--(CGVector)createVectorDirectionFromSwipeDirection:(UISwipeGestureRecognizerDirection)sDirection {
-    if (sDirection == UISwipeGestureRecognizerDirectionUp)
-        return oneUp;
-    if (sDirection == UISwipeGestureRecognizerDirectionRight)
-        return oneToTheRight;
-    if (sDirection == UISwipeGestureRecognizerDirectionDown)
-        return oneDown;
-    if (sDirection == UISwipeGestureRecognizerDirectionLeft)
-        return oneToTheLeft;
-    return noDirection;
 }
 -(CGPoint)resetOneOrdinateOfPoint:(CGPoint)point forDirection:(CGVector)direction {
 
@@ -224,40 +182,50 @@
     return CGPointMake(0.0, 0.0);
     
 }
--(CGVector)clockwiseDirectionOf:(CGVector)direction {
+- (BOOL)coordinatesInRightRange:(CGPoint)coordinates {
+    return
+    coordinates.x <= 3.0 &&
+    coordinates.x >= 0 &&
+    coordinates.y <= 3.0 &&
+    coordinates.y >= 0;
+}
 
-    if ([self direction1:direction equalsToDirection2:oneUp])
+#pragma mark Basic Vector Methods
+
+-(CGVector)createUnitVectorFromSwipeDirection:(UISwipeGestureRecognizerDirection)sDirection {
+    if (sDirection == UISwipeGestureRecognizerDirectionUp)
+        return oneUp;
+    if (sDirection == UISwipeGestureRecognizerDirectionRight)
         return oneToTheRight;
-    if ([self direction1:direction equalsToDirection2:oneToTheRight])
+    if (sDirection == UISwipeGestureRecognizerDirectionDown)
         return oneDown;
-    if ([self direction1:direction equalsToDirection2:oneDown])
+    if (sDirection == UISwipeGestureRecognizerDirectionLeft)
         return oneToTheLeft;
-    if ([self direction1:direction equalsToDirection2:oneToTheLeft])
+    return noDirection;
+}
+-(CGVector)oppositeDirectionOf:(CGVector)vDirection {
+    return CGVectorMake(-vDirection.dx, -vDirection.dy);
+}
+-(CGVector)clockwiseDirectionOf:(CGVector)vDirection {
+
+    if ([self direction1:vDirection equalsToDirection2:oneUp])
+        return oneToTheRight;
+    if ([self direction1:vDirection equalsToDirection2:oneToTheRight])
+        return oneDown;
+    if ([self direction1:vDirection equalsToDirection2:oneDown])
+        return oneToTheLeft;
+    if ([self direction1:vDirection equalsToDirection2:oneToTheLeft])
         return oneUp;
     return noDirection;
 }
--(CGVector)oppositeDirectionOf:(CGVector)direction {
-    return [self clockwiseDirectionOf:[self clockwiseDirectionOf:direction]];
+-(CGPoint)translatePoint:(CGPoint)point intoDirection:(CGVector)vDirection {
+    return CGPointMake(point.x + vDirection.dx, point.y + vDirection.dy);
 }
--(BOOL)direction1:(CGVector)direction1 equalsToDirection2:(CGVector)direction2 {
-    if (direction1.dx == direction2.dx && direction1.dy == direction2.dy)
+-(BOOL)direction1:(CGVector)vDirection1 equalsToDirection2:(CGVector)vDirection2 {
+    if (vDirection1.dx == vDirection2.dx && vDirection1.dy == vDirection2.dy)
         return TRUE;
     return FALSE;
 }
--(CGPoint)shiftPoint:(CGPoint)point oneUnitWithDirection:(CGVector)direction {
-    return CGPointMake(point.x + direction.dx, point.y + direction.dy);
-}
-
-
--(CGPoint)positionForCoordinates:(CGPoint)coordinates {
-    CGFloat xCoordinate = 8.0 + coordinates.x * 8.0 + coordinates.x * 60.0;
-    CGFloat yCoordinate = 8.0 + coordinates.y * 8.0 + coordinates.y * 60.0;;
-    return CGPointMake(xCoordinate, yCoordinate);
-}
--(CGVector)distanceForVector:(CGVector)vector {
-    CGFloat dx = vector.dx * 8.0 + vector.dx * 60.0;
-    CGFloat dy = vector.dy * 8.0 + vector.dy * 60.0;;
-    return CGVectorMake(dx, dy);
-}
 
 @end
+

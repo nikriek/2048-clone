@@ -14,12 +14,13 @@
 @synthesize value = _value;
 @synthesize coordinates = _coordinates;
 
+#pragma mark Initialisation Methods
 
 - (instancetype)initWithCoordinates:(CGPoint)coordinates
 {
     self = [super init];
     if (self) {
-        CGPoint position = [self positionForCoordinates:coordinates];
+        CGPoint position = [NRTile positionForCoordinates:coordinates];
         [self setPath:CGPathCreateWithRoundedRect(CGRectMake(position.x, position.y, 60.0,60.0), 4, 4, nil)];
         self.lineWidth = 0.0;
         self.coordinates = coordinates;
@@ -32,24 +33,27 @@
     }
     return self;
 }
-
 - (instancetype)initFrontWithCoordinates:(CGPoint)coordinates
 {
     self = [self initWithCoordinates:coordinates];
     if (self) {
         [self setValue: 2];
+        self.hasJustBeenCombined = YES;
     }
     return self;
 }
-
 - (instancetype)initBackWithCoordinates:(CGPoint)coordinates
 {
     self = [self initWithCoordinates:coordinates];
     if (self) {
         [self setValue: 0];
+        // Default value has to be set, but is not going to be used later on
+        self.hasJustBeenCombined = NO;
     }
     return self;
 }
+
+#pragma mark Changing the Value of a Tile
 
 -(void)setValue:(NSInteger)currentValue {
     _value = currentValue;
@@ -137,10 +141,18 @@
         label.fontSize--;
     }
 }
--(CGPoint)positionForCoordinates:(CGPoint)coordinates {
+
+#pragma mark Convert logical units into graphical units
+
++(CGPoint)positionForCoordinates:(CGPoint)coordinates {
     CGFloat xCoordinate = 8.0 + coordinates.x * 8.0 + coordinates.x * 60.0;
     CGFloat yCoordinate = 8.0 + coordinates.y * 8.0 + coordinates.y * 60.0;;
     return CGPointMake(xCoordinate, yCoordinate);
+}
++(CGVector)distanceForVector:(CGVector)vector {
+    CGFloat dx = vector.dx * 8.0 + vector.dx * 60.0;
+    CGFloat dy = vector.dy * 8.0 + vector.dy * 60.0;;
+    return CGVectorMake(dx, dy);
 }
 
 @end
