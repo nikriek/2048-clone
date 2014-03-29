@@ -33,7 +33,7 @@
         oneToTheRight   = CGVectorMake(1.0, 0.0);
         oneDown         = CGVectorMake(0.0, -1.0);
         oneToTheLeft    = CGVectorMake(-1.0, 0.0);
-        noDirection      = CGVectorMake(0.0, 0.0);
+        noDirection     = CGVectorMake(0.0, 0.0);
     }
     return self;
 }
@@ -52,7 +52,6 @@
         CGFloat yCoordinate = (CGFloat)([randomIndexNumber integerValue] % 4);
         CGFloat xCoordinate = ((CGFloat)[randomIndexNumber integerValue] - yCoordinate) / 4.0;
         CGPoint coordinates = CGPointMake(xCoordinate, yCoordinate);
-        CGPoint position = [self positionForTileWithCoordinates:coordinates];
         
         // Generate Random Value
         NSInteger currentValue;
@@ -63,28 +62,31 @@
             currentValue = 2;
         }
         
-        NRTile *randomTile = [[NRTile alloc] initFrontWithPosition:position];
+        NRTile *randomTile = [[NRTile alloc] initFrontWithCoordinates:coordinates];
         [randomTile setValue:currentValue];
-        [tileMatrix insertTile:randomTile atCoordinates:CGPointMake(xCoordinate, yCoordinate)];
+        [tileMatrix insertTile:randomTile atCoordinates:coordinates];
         [self addChild:randomTile];
         
     }
 }
 
--(void)createTwoTestTilesAtPositions:(CGPoint)position1 and:(CGPoint)position2 {
+-(void)createTwoTestTilesAtCoordinates:(CGPoint)coordinates1 and:(CGPoint)coordinates2 {
     
-    NRTile *tile1 = [[NRTile alloc] initFrontWithPosition:[self positionForTileWithCoordinates:position1]];
+    NRTile *tile1 = [[NRTile alloc] initFrontWithCoordinates:coordinates1];
     [tile1 setValue:tile1.value];
-    [tileMatrix insertTile:tile1 atCoordinates:position1];
+    [tileMatrix insertTile:tile1 atCoordinates:coordinates1];
     [self addChild:tile1];
 
     
     
     
-    NRTile *tile2 = [[NRTile alloc] initFrontWithPosition:[self positionForTileWithCoordinates:position2]];
+    NRTile *tile2 = [[NRTile alloc] initFrontWithCoordinates:coordinates2];
     [tile2 setValue:tile2.value];
-    [tileMatrix insertTile:tile1 atCoordinates:position2];
+    
+    [tileMatrix insertTile:tile2 atCoordinates:coordinates2];
+    
     [self addChild:tile2];
+    NRTile *testTile = [tileMatrix tileAtCoordinates:coordinates2];
     
     
 }
@@ -93,31 +95,33 @@
     
     
     
-    CGPoint oldPosition = [tileMatrix coordinatesOfTile:tile];
-    CGPoint newPosition = [self shiftPoint:newPosition oneUnitWithDirection:direction];
+    CGPoint oldCoordinates = tile.coordinates;
+    CGPoint newCoordinates = [self shiftPoint:newCoordinates oneUnitWithDirection:direction];
     
-    if ([tileMatrix tileAtCoordinates:newPosition] != nil && [tileMatrix tileAtCoordinates:newPosition].value == tile.value) {
-        int doubledValue = tile.value * 2;
-        
-        [[tileMatrix tileAtCoordinates:newPosition] removeFromParent];
-        [tileMatrix removeTileAtCoordinates:newPosition];
-        [[tileMatrix tileAtCoordinates:oldPosition] removeFromParent];
-        [tileMatrix removeTileAtCoordinates:oldPosition];
-        
-        NRTile *combinedTile = [[NRTile alloc] initFrontWithPosition:newPosition];
-        [combinedTile setValue:doubledValue];
-        [tileMatrix insertTile:combinedTile atCoordinates:newPosition];
-        [self addChild:combinedTile];
-    }
-    
-    
+//    if ([tileMatrix tileAtCoordinates:newCoordinates] != nil && [tileMatrix tileAtCoordinates:newCoordinates].value == tile.value) {
+//        int doubledValue = tile.value * 2;
+//        
+//        [[tileMatrix tileAtCoordinates:newCoordinates] removeFromParent];
+//        [tileMatrix removeTileAtCoordinates:newCoordinates];
+//        [[tileMatrix tileAtCoordinates:oldCoordinates] removeFromParent];
+//        [tileMatrix removeTileAtCoordinates:oldCoordinates];
+//        
+//        NRTile *combinedTile = [[NRTile alloc] initFrontWithPosition:[self positionForTileWithCoordinates:newCoordinates]];
+//        [combinedTile setValue:doubledValue];
+//        [tileMatrix insertTile:combinedTile atCoordinates:newCoordinates];
+//        [self addChild:combinedTile];
+//    }
     
     
-    if (oldPosition.x != -1.0 && [NRTileMatrix coordinatesInRightRange:[self shiftPoint:oldPosition oneUnitWithDirection:direction]]) {
-        [tileMatrix moveTile:tile from:oldPosition to:[self shiftPoint:oldPosition oneUnitWithDirection:direction]];
+    
+    
+    if ([NRTileMatrix coordinatesInRightRange:[self shiftPoint:oldCoordinates oneUnitWithDirection:direction]]) {
+        [tileMatrix moveTile:tile to:direction];
         SKAction *moveAction;
-        CGSize delta = [self deltaForCoordinates:oldPosition andCoordinates:[self shiftPoint:oldPosition oneUnitWithDirection:direction]];
-        moveAction = [SKAction moveByX:delta.width y:delta.height duration:0.1];
+        
+        CGVector distance = [self distanceForVector:direction];
+        moveAction = [SKAction moveByX:distance.dx y:distance.dy duration:0.1];
+        
         [tile runAction: moveAction];
     }
     
@@ -131,13 +135,12 @@
 }
 -(BOOL)tile:(NRTile*)tile isMovableOneFieldIntoDirection:(CGVector)direction {
     
-    CGPoint positionTile = [tileMatrix coordinatesOfTile:tile];
-    CGPoint newPosition = [self shiftPoint:positionTile oneUnitWithDirection:direction];
+    CGPoint newCoordinates = [self shiftPoint:tile.coordinates oneUnitWithDirection:direction];
     
     
-    if (        [NRTileMatrix coordinatesInRightRange:newPosition]
-        &&      ([tileMatrix tileAtCoordinates:newPosition]        == nil
-        ||       [tileMatrix tileAtCoordinates:newPosition].value  == tile.value))
+    if (        [NRTileMatrix coordinatesInRightRange:newCoordinates]
+        &&      ([tileMatrix tileAtCoordinates:newCoordinates]        == nil
+        /*||       [tileMatrix tileAtCoordinates:newCoordinates].value  == tile.value*/))
     { return YES;}
     
     return NO;
@@ -148,7 +151,7 @@
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection {
    
     //Play Sound
-    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
+//    [self runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSwipe] waitForCompletion:NO]];
 
 //    finishedGameBlock(NO,2048);
     BOOL shouldSetRandomTileAtTheEndOfTurn = NO;
@@ -176,9 +179,11 @@
             //Put Code in here ***************************************
             {
                 currentTile = [tileMatrix tileAtCoordinates:runningPointer];
-                if ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection])
+                CGPoint testCoordinates = currentTile.coordinates;
+                if ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection] && currentTile != nil)
                     shouldSetRandomTileAtTheEndOfTurn = YES;
-                while ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection]) {
+                while ([self tile:currentTile isMovableOneFieldIntoDirection:vDirection] && currentTile != nil) {
+                    bool testBool = [self tile:currentTile isMovableOneFieldIntoDirection:vDirection];
                     [self moveTile:currentTile oneFieldIntoDirection:vDirection];
                 }
                 
@@ -191,7 +196,7 @@
         runningPointer = [self shiftPoint:runningPointer oneUnitWithDirection:rectangularDirection];
     } //End loop
     
-    [self setNewTileAtRandomFreePosition];
+//    [self setNewTileAtRandomFreePosition];
     
 }
 
@@ -241,6 +246,18 @@
 }
 -(CGPoint)shiftPoint:(CGPoint)point oneUnitWithDirection:(CGVector)direction {
     return CGPointMake(point.x + direction.dx, point.y + direction.dy);
+}
+
+
+-(CGPoint)positionForCoordinates:(CGPoint)coordinates {
+    CGFloat xCoordinate = 8.0 + coordinates.x * 8.0 + coordinates.x * 60.0;
+    CGFloat yCoordinate = 8.0 + coordinates.y * 8.0 + coordinates.y * 60.0;;
+    return CGPointMake(xCoordinate, yCoordinate);
+}
+-(CGVector)distanceForVector:(CGVector)vector {
+    CGFloat dx = vector.dx * 8.0 + vector.dx * 60.0;
+    CGFloat dy = vector.dy * 8.0 + vector.dy * 60.0;;
+    return CGVectorMake(dx, dy);
 }
 
 @end

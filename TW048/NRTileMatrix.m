@@ -7,7 +7,6 @@
 //
 
 #import "NRTileMatrix.h"
-#import "NRBackgroundMap.h"
 
 @implementation NRTileMatrix
 
@@ -27,10 +26,10 @@
 
 #pragma mark - Tile matrix related methods
 
--(NRTile*)tileAtCoordinates:(CGPoint)position {
+-(NRTile*)tileAtCoordinates:(CGPoint)coordinates {
     
-    if ([NRTileMatrix coordinatesInRightRange:position]) {
-        id obj = matrixArray[(NSInteger)position.x * 4 + (NSInteger)position.y];
+    if ([NRTileMatrix coordinatesInRightRange:coordinates]) {
+        id obj = matrixArray[(NSInteger)coordinates.x * 4 + (NSInteger)coordinates.y];
         if ([obj isMemberOfClass:[NRTile class]]) {
             return (NRTile*)obj;
         } else {
@@ -40,18 +39,6 @@
         return nil;
     }
     
-}
-
--(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)position {
-    if ([NRTileMatrix coordinatesInRightRange:position]) {
-        matrixArray[(NSInteger)position.x * 4 + (NSInteger)position.y] = tile;
-    }    
-}
-
--(void)removeTileAtCoordinates:(CGPoint)position {
-    if ([NRTileMatrix coordinatesInRightRange:position]) {
-        matrixArray[(NSInteger)position.x * 4 + (NSInteger)position.y] = [NSNull null];
-    }
 }
 
 -(NSInteger)countOfTiles {
@@ -64,26 +51,19 @@
     return count;
 }
 
--(CGPoint)coordinatesOfTile:(NRTile*)tile {
-    for (int i = 0; i < matrixArray.count;i++) {
-        NRTile *iTile = matrixArray[i];
-        if (iTile == tile) {
-            CGFloat yCoordinate = (CGFloat)(i % 4);
-            CGFloat xCoordinate = ((CGFloat)i - yCoordinate) / 4.0;
-            return CGPointMake(xCoordinate, yCoordinate);
-        }
-    }
-    return CGPointMake(-1.0, -1.0);;
+-(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)newCoordinates {
+    matrixArray[(NSInteger)newCoordinates.x * 4 + (NSInteger)newCoordinates.y] = tile;
+    [self tileAtCoordinates:newCoordinates].coordinates = newCoordinates;
 }
-
-
--(void)moveTile:(NRTile*)tile from:(CGPoint)oldPosition to:(CGPoint)newPosition {
-    if ([NRTileMatrix coordinatesInRightRange:newPosition]) {
-        if (tile == [self tileAtCoordinates:oldPosition]) {
-            [self insertTile:tile atCoordinates:newPosition];
-            [self removeTileAtCoordinates:oldPosition];
-        }
-    }
+-(void)removeTileAtCoordinates:(CGPoint)coordinates {
+    matrixArray[(NSInteger)coordinates.x * 4 + (NSInteger)coordinates.y] = [NSNull null];
+}
+-(void)moveTile:(NRTile*)oldTile to:(CGVector)direction {
+    CGPoint oldCoordinates = oldTile.coordinates;
+    CGPoint newCoordinates = [self shiftPoint:oldTile.coordinates oneUnitWithDirection:direction];
+    
+    [self insertTile:oldTile atCoordinates:newCoordinates];
+    [self removeTileAtCoordinates:oldCoordinates];
 }
 
 +(BOOL)coordinatesInRightRange:(CGPoint)coordinates {
@@ -92,6 +72,9 @@
         coordinates.x >= 0 &&
         coordinates.y <= 3.0 &&
         coordinates.y >= 0;
+}
+-(CGPoint)shiftPoint:(CGPoint)point oneUnitWithDirection:(CGVector)direction {
+    return CGPointMake(point.x + direction.dx, point.y + direction.dy);
 }
 
 @end

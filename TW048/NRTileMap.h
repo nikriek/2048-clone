@@ -7,7 +7,6 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "NRBackgroundMap.h"
 
 
 typedef struct Direction Direction;
@@ -15,10 +14,10 @@ typedef struct Direction Direction;
 typedef void (^NewScoreBlock)(NSInteger newScore, NSInteger offset);
 typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
 
-@interface NRTileMap : NRBackgroundMap
+@interface NRTileMap : SKNode
 
 -(void)setNewTileAtRandomFreePosition;
--(void)createTwoTestTilesAtPositions:(CGPoint)position1 and:(CGPoint)position2;
+-(void)createTwoTestTilesAtCoordinates:(CGPoint)coordinates1 and:(CGPoint)coordinates2;
 
 
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection;

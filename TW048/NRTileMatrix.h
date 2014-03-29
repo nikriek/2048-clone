@@ -14,17 +14,15 @@
 @property (nonatomic,retain) NSMutableArray *matrixArray;
 
 
--(NRTile*)tileAtCoordinates:(CGPoint)position;
+-(NRTile*)tileAtCoordinates:(CGPoint)coordinates;
 
--(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)position;
+-(void)insertTile:(NRTile*)tile atCoordinates:(CGPoint)coordinates;
 
--(void)removeTileAtCoordinates:(CGPoint)position;
+-(void)removeTileAtCoordinates:(CGPoint)coordinates;
 
 -(NSInteger)countOfTiles;
 
--(CGPoint)coordinatesOfTile:(NRTile*)tile;
-
--(void)moveTile:(NRTile*)tile from:(CGPoint)oldPosition to:(CGPoint)newPosition;
+-(void)moveTile:(NRTile*)tile to:(CGVector)direction;
 
 +(BOOL)coordinatesInRightRange:(CGPoint)coordinates;
 

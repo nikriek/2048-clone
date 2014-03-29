@@ -11,8 +11,9 @@
 @interface NRTile : SKShapeNode
 
 @property (nonatomic) NSInteger value;
+@property (nonatomic) CGPoint coordinates;
 
-- (instancetype)initFrontWithPosition:(CGPoint)position;
-- (instancetype)initBackWithPosition:(CGPoint)position;
+- (instancetype)initFrontWithCoordinates:(CGPoint)coordinates;
+- (instancetype)initBackWithCoordinates:(CGPoint)coordinates;
 
 @end

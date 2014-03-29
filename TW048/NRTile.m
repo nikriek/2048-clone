@@ -12,14 +12,17 @@
     SKLabelNode *label;
 }
 @synthesize value = _value;
+@synthesize coordinates = _coordinates;
 
 
-- (instancetype)initWithPosition:(CGPoint)position
+- (instancetype)initWithCoordinates:(CGPoint)coordinates
 {
     self = [super init];
     if (self) {
+        CGPoint position = [self positionForCoordinates:coordinates];
         [self setPath:CGPathCreateWithRoundedRect(CGRectMake(position.x, position.y, 60.0,60.0), 4, 4, nil)];
         self.lineWidth = 0.0;
+        self.coordinates = coordinates;
         
         label = [SKLabelNode labelNodeWithFontNamed:@"Helevetica Neue"];
         label.position = CGPointMake(position.x+30.0, position.y+30.0);
@@ -30,18 +33,18 @@
     return self;
 }
 
-- (instancetype)initFrontWithPosition:(CGPoint)position
+- (instancetype)initFrontWithCoordinates:(CGPoint)coordinates
 {
-    self = [self initWithPosition:position];
+    self = [self initWithCoordinates:coordinates];
     if (self) {
         [self setValue: 2];
     }
     return self;
 }
 
-- (instancetype)initBackWithPosition:(CGPoint)position
+- (instancetype)initBackWithCoordinates:(CGPoint)coordinates
 {
-    self = [self initWithPosition:position];
+    self = [self initWithCoordinates:coordinates];
     if (self) {
         [self setValue: 0];
     }
@@ -133,6 +136,11 @@
     while (label.frame.size.width >= 60.0) {
         label.fontSize--;
     }
+}
+-(CGPoint)positionForCoordinates:(CGPoint)coordinates {
+    CGFloat xCoordinate = 8.0 + coordinates.x * 8.0 + coordinates.x * 60.0;
+    CGFloat yCoordinate = 8.0 + coordinates.y * 8.0 + coordinates.y * 60.0;;
+    return CGPointMake(xCoordinate, yCoordinate);
 }
 
 @end

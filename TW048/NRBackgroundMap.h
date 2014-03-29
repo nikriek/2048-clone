@@ -11,6 +11,5 @@
 @interface NRBackgroundMap : SKNode
 
 -(void)generate;
--(CGPoint)positionForTileWithCoordinates:(CGPoint)coordinates;
--(CGSize)deltaForCoordinates:(CGPoint)coordinates1 andCoordinates:(CGPoint)coordinates2;
+
 @end
