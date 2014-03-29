@@ -3,7 +3,7 @@
 //  TW048
 //
 //  Created by Niklas Riekenbrauck on 21.03.14.
-//  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
+//  Copyright (c) 2014 Niklas Riekenbrauck & Georg Zänker. All rights reserved.
 //
 
 #import "NRTile.h"
@@ -153,6 +153,18 @@
     CGFloat dx = vector.dx * 8.0 + vector.dx * 60.0;
     CGFloat dy = vector.dy * 8.0 + vector.dy * 60.0;;
     return CGVectorMake(dx, dy);
+}
+
+#pragma mark Basic Vector Methods
+// These should actually be a Categorie/Subclass/Extension of CGGeometry, but as I don't know how to do that, they stick here
++(CGVector)oppositeDirectionOf:(CGVector)vDirection {
+    return CGVectorMake(-vDirection.dx, -vDirection.dy);
+}
++(CGVector)clockwiseDirectionOf:(CGVector)vDirection {
+    return CGVectorMake(vDirection.dy, -vDirection.dx);
+}
++(CGPoint)translatePoint:(CGPoint)point intoDirection:(CGVector)vDirection {
+    return CGPointMake(point.x + vDirection.dx, point.y + vDirection.dy);
 }
 
 @end

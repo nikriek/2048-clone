@@ -179,6 +179,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56339B5B18E76BAB008713F9 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				A6E5A3DD18DDFB990082410C /* MZFormSheetController */,
+				A6E79CF418DDEC9D00301D99 /* SoundPlayer.h */,
+				A6E79CF518DDEC9D00301D99 /* SoundPlayer.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		56339B5C18E76BEB008713F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6B284A518DB210F00E2654D /* Images.xcassets */,
+				5659478F18DDCFAD00066ECE /* Sounds */,
+				56C1174218DF943800F6E79B /* Pictures */,
+				A6B2848F18DB210F00E2654D /* Supporting Files */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		5659478F18DDCFAD00066ECE /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,9 +329,6 @@
 		A6B2848E18DB210F00E2654D /* TW048 */ = {
 			isa = PBXGroup;
 			children = (
-				A6E5A3DD18DDFB990082410C /* MZFormSheetController */,
-				A6E79CF418DDEC9D00301D99 /* SoundPlayer.h */,
-				A6E79CF518DDEC9D00301D99 /* SoundPlayer.m */,
 				A6B2849718DB210F00E2654D /* NRAppDelegate.h */,
 				A6B2849818DB210F00E2654D /* NRAppDelegate.m */,
 				A6B2849A18DB210F00E2654D /* Main.storyboard */,
@@ -319,10 +337,8 @@
 				A6E5A3F318DDFC700082410C /* NRGameOverSheetViewController.h */,
 				A6E5A3F418DDFC700082410C /* NRGameOverSheetViewController.m */,
 				A6D44D7A18DB564C004619FE /* Game Scene */,
-				A6B284A518DB210F00E2654D /* Images.xcassets */,
-				5659478F18DDCFAD00066ECE /* Sounds */,
-				56C1174218DF943800F6E79B /* Pictures */,
-				A6B2848F18DB210F00E2654D /* Supporting Files */,
+				56339B5B18E76BAB008713F9 /* Tools */,
+				56339B5C18E76BEB008713F9 /* Resources */,
 			);
 			path = TW048;
 			sourceTree = "<group>";

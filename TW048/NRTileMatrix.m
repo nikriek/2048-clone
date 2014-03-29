@@ -3,7 +3,7 @@
 //  TW048
 //
 //  Created by Niklas Riekenbrauck on 22.03.14.
-//  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
+//  Copyright (c) 2014 Niklas Riekenbrauck & Georg Zänker. All rights reserved.
 //
 
 #import "NRTileMatrix.h"
@@ -35,7 +35,7 @@
 }
 -(void)moveTile:(NRTile*)oldTile to:(CGVector)direction {
     CGPoint oldCoordinates = oldTile.coordinates;
-    CGPoint newCoordinates = [self shiftPoint:oldTile.coordinates oneUnitWithDirection:direction];
+    CGPoint newCoordinates = [NRTile translatePoint:oldTile.coordinates intoDirection:direction];
     
     [self insertTile:oldTile atCoordinates:newCoordinates];
     [self removeTileAtCoordinates:oldCoordinates];
@@ -74,10 +74,6 @@
             matrixArray[i] = tempTile;
         }
     }
-}
-
--(CGPoint)shiftPoint:(CGPoint)point oneUnitWithDirection:(CGVector)direction {
-    return CGPointMake(point.x + direction.dx, point.y + direction.dy);
 }
 
 @end

@@ -3,7 +3,7 @@
 //  TW048
 //
 
-//  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
+//  Copyright (c) 2014 Niklas Riekenbrauck & Georg Zänker. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

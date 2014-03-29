@@ -3,7 +3,7 @@
 //  TW048
 //
 //  Created by Niklas Riekenbrauck on 22.03.14.
-//  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
+//  Copyright (c) 2014 Niklas Riekenbrauck & Georg Zänker. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

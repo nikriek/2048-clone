@@ -3,7 +3,7 @@
 //  TW048
 //
 //  Created by Niklas Riekenbrauck on 21.03.14.
-//  Copyright (c) 2014 Niklas Riekenbrauck. All rights reserved.
+//  Copyright (c) 2014 Niklas Riekenbrauck & Georg Zänker. All rights reserved.
 //
 
 #import "NRTileMap.h"
@@ -13,12 +13,6 @@
 
 @implementation NRTileMap {
     NRTileMatrix *tileMatrix;
-    
-    CGVector oneUp           ;
-    CGVector oneToTheRight   ;
-    CGVector oneDown         ;
-    CGVector oneToTheLeft    ;
-    CGVector noDirection     ;
 }
 
 @synthesize finishedGameBlock;
@@ -28,18 +22,23 @@
     self = [super init];
     if (self) {
        tileMatrix = [NRTileMatrix new];
-        
-        oneUp           = CGVectorMake(0.0, 1.0);
-        oneToTheRight   = CGVectorMake(1.0, 0.0);
-        oneDown         = CGVectorMake(0.0, -1.0);
-        oneToTheLeft    = CGVectorMake(-1.0, 0.0);
-        noDirection     = CGVectorMake(0.0, 0.0);
     }
     return self;
 }
 
 #pragma mark Making a turn
 
+-(CGVector)createUnitVectorDirectionFromSwipeDirection:(UISwipeGestureRecognizerDirection)sDirection {
+    if (sDirection == UISwipeGestureRecognizerDirectionUp)
+        return CGVectorMake(0, 1);
+    if (sDirection == UISwipeGestureRecognizerDirectionRight)
+        return CGVectorMake(1, 0);
+    if (sDirection == UISwipeGestureRecognizerDirectionDown)
+        return CGVectorMake(0, -1);
+    if (sDirection == UISwipeGestureRecognizerDirectionLeft)
+        return CGVectorMake(-1, 0);
+    return CGVectorMake(0, 0);
+}
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection {
     
     //Play Sound
@@ -49,14 +48,11 @@
     BOOL shouldSetRandomTileAtTheEndOfTurn = NO;
     [tileMatrix resetHasJustBeenCombinedTags];
     
-    
-    
-    
     //Set up the Loop
     NRTile *currentTile;
-    CGVector vDirection = [self createUnitVectorFromSwipeDirection:sDirection];
-    CGVector rectangularDirection = [self clockwiseDirectionOf:vDirection];
-    CGVector oppositeDirection = [self oppositeDirectionOf:vDirection];
+    CGVector vDirection = [self createUnitVectorDirectionFromSwipeDirection:sDirection];
+    CGVector rectangularDirection = [NRTile clockwiseDirectionOf:vDirection];
+    CGVector oppositeDirection = [NRTile oppositeDirectionOf:vDirection];
     
     // a CGPoint pointing at the current position in the Matrix
     CGPoint runningPointer = CGPointMake(0.0, 0.0);
@@ -80,11 +76,11 @@
                 
             }
             // *******************************************************
-            runningPointer = [self translatePoint:runningPointer intoDirection:oppositeDirection];
+            runningPointer = [NRTile translatePoint:runningPointer intoDirection:oppositeDirection];
         }
         runningPointer = [self resetOneOrdinateOfPoint:runningPointer forDirection:oppositeDirection];
         
-        runningPointer = [self translatePoint:runningPointer intoDirection:rectangularDirection];
+        runningPointer = [NRTile translatePoint:runningPointer intoDirection:rectangularDirection];
     } //End loop
     
     if (shouldSetRandomTileAtTheEndOfTurn)
@@ -122,21 +118,18 @@
         [randomTile setValue:currentValue];
         [tileMatrix insertTile:randomTile atCoordinates:coordinates];
         [self addChild:randomTile];
-        
     }
 }
-
 -(void)moveTile:(NRTile*)tile oneFieldIntoDirection:(CGVector)vDirection {
     
     CGPoint oldCoordinates = tile.coordinates;
-    CGPoint newCoordinates = [self translatePoint:oldCoordinates intoDirection:vDirection];
+    CGPoint newCoordinates = [NRTile translatePoint:oldCoordinates intoDirection:vDirection];
     
-    if (    [tileMatrix tileAtCoordinates:newCoordinates] != nil
-        &&  [tileMatrix tileAtCoordinates:newCoordinates].value == tile.value
-        &&  [self coordinatesInRightRange:[self translatePoint:oldCoordinates intoDirection:vDirection]])
-    {
+    //Check whether the Block is combinable
+    if ([tileMatrix tileAtCoordinates:newCoordinates].value == tile.value) {
         int doubledValue = tile.value * 2;
         
+        //Remove both tiles and create a new one
         [[tileMatrix tileAtCoordinates:newCoordinates] removeFromParent];
         [tileMatrix removeTileAtCoordinates:newCoordinates];
         [[tileMatrix tileAtCoordinates:oldCoordinates] removeFromParent];
@@ -146,41 +139,27 @@
         [combinedTile setValue:doubledValue];
         [tileMatrix insertTile:combinedTile atCoordinates:newCoordinates];
         [self addChild:combinedTile];
+        
     } else {
+        //Else make a normal move
         [tileMatrix moveTile:tile to:vDirection];
     }
-    
     
     // Run animation
     CGVector distance = [NRTile distanceForVector:vDirection];
     SKAction *moveAction = [SKAction moveByX:distance.dx y:distance.dy duration:0.1];
     [tile runAction: moveAction];
 }
--(BOOL)tile:(NRTile*)tile isMovableOneFieldIntoDirection:(CGVector)direction {
+-(BOOL)tile:(NRTile*)tile isMovableOneFieldIntoDirection:(CGVector)vDirection {
     
-    CGPoint newCoordinates = [self translatePoint:tile.coordinates intoDirection:direction];
-    
+    CGPoint newCoordinates = [NRTile translatePoint:tile.coordinates intoDirection:vDirection];
     
     if (        [self coordinatesInRightRange:newCoordinates]
         &&      ([tileMatrix tileAtCoordinates:newCoordinates]        == nil
         ||       ([tileMatrix tileAtCoordinates:newCoordinates].value  == tile.value
         &&          [tileMatrix tileAtCoordinates:newCoordinates].hasJustBeenCombined == NO)))
-    { return YES;}
-    
+        return YES;
     return NO;
-}
--(CGPoint)resetOneOrdinateOfPoint:(CGPoint)point forDirection:(CGVector)direction {
-
-    if ([self direction1:direction equalsToDirection2:oneUp])
-        return CGPointMake(point.x, 0.0);
-    if ([self direction1:direction equalsToDirection2:oneDown])
-        return CGPointMake(point.x, 3.0);
-    if ([self direction1:direction equalsToDirection2:oneToTheRight])
-        return CGPointMake(0.0, point.y);
-    if ([self direction1:direction equalsToDirection2:oneToTheLeft])
-        return CGPointMake(3.0, point.y);
-    return CGPointMake(0.0, 0.0);
-    
 }
 - (BOOL)coordinatesInRightRange:(CGPoint)coordinates {
     return
@@ -189,42 +168,16 @@
     coordinates.y <= 3.0 &&
     coordinates.y >= 0;
 }
-
-#pragma mark Basic Vector Methods
-
--(CGVector)createUnitVectorFromSwipeDirection:(UISwipeGestureRecognizerDirection)sDirection {
-    if (sDirection == UISwipeGestureRecognizerDirectionUp)
-        return oneUp;
-    if (sDirection == UISwipeGestureRecognizerDirectionRight)
-        return oneToTheRight;
-    if (sDirection == UISwipeGestureRecognizerDirectionDown)
-        return oneDown;
-    if (sDirection == UISwipeGestureRecognizerDirectionLeft)
-        return oneToTheLeft;
-    return noDirection;
-}
--(CGVector)oppositeDirectionOf:(CGVector)vDirection {
-    return CGVectorMake(-vDirection.dx, -vDirection.dy);
-}
--(CGVector)clockwiseDirectionOf:(CGVector)vDirection {
-
-    if ([self direction1:vDirection equalsToDirection2:oneUp])
-        return oneToTheRight;
-    if ([self direction1:vDirection equalsToDirection2:oneToTheRight])
-        return oneDown;
-    if ([self direction1:vDirection equalsToDirection2:oneDown])
-        return oneToTheLeft;
-    if ([self direction1:vDirection equalsToDirection2:oneToTheLeft])
-        return oneUp;
-    return noDirection;
-}
--(CGPoint)translatePoint:(CGPoint)point intoDirection:(CGVector)vDirection {
-    return CGPointMake(point.x + vDirection.dx, point.y + vDirection.dy);
-}
--(BOOL)direction1:(CGVector)vDirection1 equalsToDirection2:(CGVector)vDirection2 {
-    if (vDirection1.dx == vDirection2.dx && vDirection1.dy == vDirection2.dy)
-        return TRUE;
-    return FALSE;
+-(CGPoint)resetOneOrdinateOfPoint:(CGPoint)point forDirection:(CGVector)vDirection {
+    if (vDirection.dy > 0)
+        return CGPointMake(point.x, 0.0);
+    if (vDirection.dy < 0)
+        return CGPointMake(point.x, 3.0);
+    if (vDirection.dx > 0)
+        return CGPointMake(0.0, point.y);
+    if (vDirection.dx < 0)
+        return CGPointMake(3.0, point.y);
+    return CGPointMake(0.0, 0.0);
 }
 
 @end
