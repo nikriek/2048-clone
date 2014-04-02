@@ -28,6 +28,9 @@
 
 -(void)didMoveToView:(SKView *)view {
     [self.mapTiles setUpNewGame];
+//    [self.mapTiles insertTestTileWithCoordinates:CGPointMake(0, 1) andValue:1024];
+//    [self.mapTiles insertTestTileWithCoordinates:CGPointMake(0, 0) andValue:1024];
+
 }
 
 -(void)update:(CFTimeInterval)currentTime {

@@ -19,11 +19,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.restartButton.layer.cornerRadius = 4.0;
-    self.restartButton.layer.masksToBounds = YES;
-    self.tweetButton.layer.cornerRadius = 4.0;
-    self.tweetButton.layer.masksToBounds = YES;
-    self.facebookButton.layer.cornerRadius = 4.0;
+    self.restartButton.layer.cornerRadius   = 4.0;
+    self.restartButton.layer.masksToBounds  = YES;
+    self.tweetButton.layer.cornerRadius     = 4.0;
+    self.tweetButton.layer.masksToBounds    = YES;
+    self.facebookButton.layer.cornerRadius  = 4.0;
     self.facebookButton.layer.masksToBounds = YES;
 }
 
@@ -33,6 +33,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)pushedRestart:(UIButton *)sender {
+    
+    
     MZFormSheetController *parent = (MZFormSheetController*)[self mz_parentTargetViewController];
     [parent mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
 
