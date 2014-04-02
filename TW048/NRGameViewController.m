@@ -13,7 +13,7 @@
 #import "NRGameOverSheetViewController.h"
 
 @implementation NRGameViewController {
-    NRGameScene * scene;
+    NRGameScene *scene;
     SoundPlayer *soundPlayer;
 }
 @synthesize scoreLabel;
@@ -65,9 +65,13 @@
         [weakSelf updateScore:newScore withScoreOffset:offset];
     }];
     
-    [scene.mapTiles setFinishedGameBlock:^(BOOL success, NSInteger score) {
+    [scene.mapTiles setGameWonBlock: ^(NSInteger score, NSInteger gameWonType){
         //[soundPlayer stopBackgroundSound];
-        [weakSelf showPopUpWithScore:score andSuccess:success];
+        [weakSelf showPopUpWithScore:score andGameOverType:kGameWon];
+    }];
+    [scene.mapTiles setGameLostBlock:^(NSInteger score){
+        //[soundPlayer stopBackgroundSound];
+        [weakSelf showPopUpWithScore:score andGameOverType:kGameLost];
     }];
 
     // Present the scene.
@@ -80,7 +84,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
--(void)showPopUpWithScore:(NSInteger)score andSuccess:(BOOL)success {
+-(void)showPopUpWithScore:(NSInteger)score andGameOverType:(GameOverType)gameOverType {
     
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sheet"];
     
@@ -92,7 +96,7 @@
     formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController) {
         NRGameOverSheetViewController *viewController = (NRGameOverSheetViewController *)presentedFSViewController;
         viewController.score = score;
-        if (success) {
+        if (gameOverType == kGameWon) {
             viewController.statusTextLabel.text = @"You win!";
             [scene runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSuccess]
                                         waitForCompletion:NO]];

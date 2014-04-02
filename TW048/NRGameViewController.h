@@ -10,6 +10,11 @@
 #import <SpriteKit/SpriteKit.h>
 #import "MZFormSheetController.h"
 
+typedef enum GameOverType:BOOL {
+    kGameWon,
+    kGameLost
+} GameOverType;
+
 @interface NRGameViewController : MZFormSheetController 
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;

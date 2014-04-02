@@ -21,6 +21,7 @@
 		5659478E18DDCF8200066ECE /* The Binary Code Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */; };
 		5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E48F18DDC9D100FF1594 /* Social.framework */; };
 		5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E49118DDC9D900FF1594 /* AVFoundation.framework */; };
+		56BFB60D18EC6EFE0096A78E /* GZGameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB60C18EC6EFE0096A78E /* GZGameData.m */; };
 		A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */; };
 		A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1118DCF0B2001A68F0 /* NRTile.m */; };
 		A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1718DD19FA001A68F0 /* NRTileMatrix.m */; };
@@ -79,6 +80,8 @@
 		5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Binary Code Song.mp3"; sourceTree = "<group>"; };
 		5689E48F18DDC9D100FF1594 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5689E49118DDC9D900FF1594 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		56BFB60B18EC6EFE0096A78E /* GZGameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGameData.h; sourceTree = "<group>"; };
+		56BFB60C18EC6EFE0096A78E /* GZGameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGameData.m; sourceTree = "<group>"; };
 		56C1173E18DF941300F6E79B /* LauchImageR4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LauchImageR4.png; sourceTree = "<group>"; };
 		56C1173F18DF941300F6E79B /* LauchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LauchImage@2x.png"; sourceTree = "<group>"; };
 		56C1174418DF944D00F6E79B /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon29x29.png; sourceTree = "<group>"; };
@@ -259,6 +262,15 @@
 			name = Pop;
 			sourceTree = "<group>";
 		};
+		56BFB60E18EC6F030096A78E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56BFB60B18EC6EFE0096A78E /* GZGameData.h */,
+				56BFB60C18EC6EFE0096A78E /* GZGameData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		56C1174218DF943800F6E79B /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +349,7 @@
 				A6E5A3F318DDFC700082410C /* NRGameOverSheetViewController.h */,
 				A6E5A3F418DDFC700082410C /* NRGameOverSheetViewController.m */,
 				A6D44D7A18DB564C004619FE /* Game Scene */,
+				56BFB60E18EC6F030096A78E /* Model */,
 				56339B5B18E76BAB008713F9 /* Tools */,
 				56339B5C18E76BEB008713F9 /* Resources */,
 			);
@@ -533,6 +546,7 @@
 			files = (
 				A6E5A3EF18DDFB990082410C /* MZFormSheetSegue.m in Sources */,
 				A6E5A3EC18DDFB990082410C /* MZFormSheetBackgroundWindow.m in Sources */,
+				56BFB60D18EC6EFE0096A78E /* GZGameData.m in Sources */,
 				A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */,
 				A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */,
 				A6E5A3F118DDFB990082410C /* UIImage+Additional.m in Sources */,

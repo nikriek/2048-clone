@@ -7,19 +7,28 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GZGameData.h"
 
-
-typedef struct Direction Direction;
 
 typedef void (^NewScoreBlock)(NSInteger newScore, NSInteger offset);
-typedef void (^FinishedGameBlock)(BOOL success,NSInteger score);
+
+typedef void (^GameLostBlock)(NSInteger score);
+typedef void (^GameWonBlock) (NSInteger score, NSInteger winType);
 
 @interface NRTileMap : SKNode
 
--(void)setNewTileAtRandomFreePosition;
+-(void)setUpNewGame;
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection;
 
 @property (nonatomic, copy) NewScoreBlock newScoreBlock;
-@property (nonatomic, copy) FinishedGameBlock finishedGameBlock;
+
+@property (nonatomic, copy) GameLostBlock gameLostBlock;
+@property (nonatomic, copy) GameWonBlock gameWonBlock;
+
+@property (nonatomic, retain) GZGameData *gameData;
+
+#pragma mark Test Methods
+//Do not delete before shipping to the Appstore!!!
+-(void)insertTestTileWithCoordinates:(CGPoint)coordinates andValue:(NSInteger)value;
 
 @end

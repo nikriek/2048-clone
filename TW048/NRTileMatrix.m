@@ -52,6 +52,11 @@
     }
     return count;
 }
+-(BOOL)isFullWithTiles {
+    if ([self countOfTiles] == 16)
+        return YES;
+    return NO;
+}
 -(NRTile*)tileAtCoordinates:(CGPoint)coordinates {
     
     id obj = matrixArray[(NSInteger)coordinates.x * 4 + (NSInteger)coordinates.y];
@@ -65,7 +70,7 @@
 
 #pragma mark Resets
 
--(void)resetHasJustBeenCombinedTags {
+-(void)resetHasJustBeenCombinedTagsOfTiles {
     NRTile *tempTile;
     for (int i = 0; i < matrixArray.count; i++) {
         if (matrixArray[i] != [NSNull null]) {

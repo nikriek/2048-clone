@@ -20,10 +20,10 @@
 
 #pragma mark Array Related Methods
 -(NSInteger)countOfTiles;
+-(BOOL)isFullWithTiles;
 -(NRTile*)tileAtCoordinates:(CGPoint)coordinates;
 
 #pragma mark Resets
--(void)resetHasJustBeenCombinedTags;
-//Possibly a reset matrix Array Method for later
+-(void)resetHasJustBeenCombinedTagsOfTiles;
 
 @end
