@@ -11,7 +11,6 @@
 
 
 typedef void (^NewScoreBlock)(NSInteger newScore, NSInteger offset);
-
 typedef void (^GameLostBlock)(NSInteger score);
 typedef void (^GameWonBlock) (NSInteger score, NSInteger winType);
 
@@ -21,9 +20,8 @@ typedef void (^GameWonBlock) (NSInteger score, NSInteger winType);
 -(void)performedSwipeGestureInDirection:(UISwipeGestureRecognizerDirection)sDirection;
 
 @property (nonatomic, copy) NewScoreBlock newScoreBlock;
-
 @property (nonatomic, copy) GameLostBlock gameLostBlock;
-@property (nonatomic, copy) GameWonBlock gameWonBlock;
+@property (nonatomic, copy) GameWonBlock  gameWonBlock;
 
 @property (nonatomic, retain) GZGameData *gameData;
 

@@ -21,6 +21,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Setup Highscore Label
+    NSInteger highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"Highscore"];
+    self.bestLabel.text = [NSString stringWithFormat:@"%i",(int)highscore];
+    
     // Configure form sheet
     [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
     [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
@@ -40,7 +45,6 @@
     self.gamepadView.layer.masksToBounds = YES;
     
     [self prepareGame];
-
 }
 
 -(void)prepareGame {
@@ -59,12 +63,12 @@
 
     // Create and configure the scene.
     scene = [NRGameScene sceneWithSize:skView.bounds.size];
+    
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [scene.mapTiles setNewScoreBlock:^(NSInteger newScore, NSInteger offset) {
         //Actions for new score
         [weakSelf updateScore:newScore withScoreOffset:offset];
     }];
-    
     [scene.mapTiles setGameWonBlock: ^(NSInteger score, NSInteger gameWonType){
         //[soundPlayer stopBackgroundSound];
         [weakSelf showPopUpWithScore:score andGameOverType:kGameWon];
@@ -116,6 +120,12 @@
 }
 
 -(void)updateScore:(NSInteger)score withScoreOffset:(NSInteger)offset {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (score > [defaults integerForKey:@"Highscore"]) {
+        [defaults setInteger:score forKey:@"Highscore"];
+        self.bestLabel.text = [NSString stringWithFormat:@"%i",(int)score];
+    }
     self.scoreLabel.text = [NSString stringWithFormat:@"%i",(int)score];
 }
 

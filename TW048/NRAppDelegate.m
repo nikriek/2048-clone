@@ -12,7 +12,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //Create a Highscore Integer in the Defaults in case is doesnt yet exist
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults integerForKey:@"Highscore"] == 0) {
+        NSInteger highscore = 0;
+        [defaults setInteger:highscore forKey:@"Highscore"];
+    }
+    [defaults synchronize];
+    
     return YES;
 }
 							

@@ -81,11 +81,12 @@
     
     
     
-    //*************Checks at the End Of Turn**************
+    //*************Actions at the End Of Turn**************
+    //Update Score
+    self.newScoreBlock(self.gameData.score, 4);
     //Random Tile?
     if (shouldSetRandomTileAtTheEndOfTurn)
         [self setNewTileAtRandomFreePosition];
-    
     //Do Gameover Checks
     if ([self noFurtherTurnPossible])
         self.gameLostBlock(self.gameData.score);
@@ -144,6 +145,9 @@
         [combinedTile setValue:doubledValue];
         [self.gameData.tileMatrix insertTile:combinedTile atCoordinates:newCoordinates];
         [self addChild:combinedTile];
+        
+        //Update Score
+        self.gameData.score += combinedTile.value;
         
         //Check whether the winning Tile was created
         if (combinedTile.value == self.gameData.gameWonType) {
